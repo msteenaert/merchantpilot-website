@@ -390,3 +390,4 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .ap-r{flex:none;white-space:nowrap}
 .ap-c .btn{margin-top:auto}
 .ap-mb{margin:-8px 0 0;color:var(--mute);font-size:.95rem}
+.ap-lg img{max-height:36px}

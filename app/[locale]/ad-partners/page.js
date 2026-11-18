@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
   return { title: locale === "nl" ? "Advertentiepartners | MerchantPilot" : "Ad partners | MerchantPilot" };
 }
 
-const agency = { google: "/agencies/bolt.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
+const agency = { google: "/agencies/storm.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
 // Placeholder deal prices for all three until the real numbers are provided.
 const D = { normal: 300, ours: 150, fee: 8 };
 const deal = { google: D, meta: D, pinterest: D };
