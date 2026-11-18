@@ -131,7 +131,7 @@ export default async function Home({ params }) {
             {c.reviews.items.map(([name, store, quote], i) => (
               <figure className="card rv" key={i}>
                 <div className="rvh">
-                  <span className="rva">{name.slice(0, 1).toUpperCase()}</span>
+                  {TRUST.photos[i] ? <img className="rva" src={TRUST.photos[i]} alt={name} /> : <span className="rva">{name.slice(0, 1).toUpperCase()}</span>}
                   <div><b className="rvn">{name}</b><span className="rvs" aria-label="5 / 5">★★★★★</span></div>
                 </div>
                 <blockquote className="rvt" style={{ margin: 0 }}>{quote}</blockquote>
