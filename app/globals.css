@@ -256,3 +256,5 @@ section{padding-top:72px;padding-bottom:72px}.head{margin-bottom:36px}
 .ss-p{list-style:none;margin:26px 0 20px;padding:0}.ss-p li{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:1rem}.ss-p li:last-child{border-bottom:1px solid var(--line)}.ss-p b{font-weight:800;white-space:nowrap}
 .ss-btn{width:100%;box-sizing:border-box;min-height:48px}
 .ss-n{margin:12px 0 0;font-size:.85rem;color:var(--mute);text-align:center}
+.hf-c .hf-st svg{width:18px;height:18px;flex:none;display:block}
+.hf-c .hf-rc svg,.hf-rc svg{width:100%;height:auto}
