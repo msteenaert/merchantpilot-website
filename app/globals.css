@@ -383,3 +383,9 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 /* review names/stars like Shopify */
 .rvn{display:block;margin-bottom:4px}
 .rvs{display:block;white-space:nowrap;overflow:visible}
+/* identical partner cards */
+.ap-top{flex-wrap:nowrap;justify-content:space-between;gap:10px}
+.ap-lg{flex:0 1 150px;min-width:0;justify-content:center}
+.ap-lg img{max-width:100%;max-height:30px}
+.ap-r{flex:none;white-space:nowrap}
+.ap-c .btn{margin-top:auto}

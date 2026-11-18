@@ -11,8 +11,9 @@ export async function generateMetadata({ params }) {
 }
 
 const agency = { google: "/agencies/bolt.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
-// Only partners with agreed deal prices are listed here (Pinterest partner example given by owner).
-const deal = { pinterest: { normal: 300, ours: 150, fee: 8 } };
+// Placeholder deal prices for all three until the real numbers are provided.
+const D = { normal: 300, ours: 150, fee: 8 };
+const deal = { google: D, meta: D, pinterest: D };
 const logo = (id) => `/logos/${id === "google" ? "google-ads" : id}.png`;
 
 export default async function AdPartners({ params }) {
