@@ -3,6 +3,8 @@ import { money, waLink, payLink } from "@/lib/site";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
 import Cta from "@/components/Cta";
+import Tabs from "@/components/Tabs";
+import FlowHero from "@/components/FlowHero";
 import { content } from "@/lib/content";
 
 export async function generateMetadata({ params }) {
@@ -18,51 +20,49 @@ export default async function Pricing({ params }) {
 
   return (
     <>
-      <section className="hero">
+      <section className="hf">
         <div className="w">
-          <span className="kick">{p.hero.kicker}</span>
-          <h1 style={{ maxWidth: 820 }}>{p.hero.title}</h1>
-          <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", maxWidth: 640, marginTop: 18 }}>{p.hero.text}</p>
-          <div className="btns">
-            <Cta className="btn btn-m" href={waLink(locale, p.hero.waHelp)}>{p.hero.btn1}</Cta>
-            <a className="btn btn-o" href="#packages">{p.hero.btn2}</a>
+          <div>
+            <span className="hf-k"><i></i>{p.hero.kicker}</span>
+            <h1>{p.hero.title}</h1>
+            <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", margin: "20px 0 0", maxWidth: 520 }}>{p.hero.text}</p>
+            <div className="hf-b"><a className="btn btn-m" href="#packages">{p.hero.btn2}</a></div>
+            <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
           </div>
-          <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
+          <FlowHero locale={locale} />
         </div>
       </section>
 
       <section id="packages">
         <div className="w">
           <div className="head"><h2>{p.packagesTitle}</h2></div>
-          {p.groups.map((g, gi) => (
-            <div key={gi} style={{ marginBottom: 48 }}>
-              <h3 style={{ fontSize: "1.4rem" }}>{g.title}</h3>
-              <p style={{ color: "var(--mute)", margin: "8px 0 20px", maxWidth: 680 }}>{g.text}</p>
-              <div className="g3">
-                {g.items.map((it) => (
-                  <div className="card tier" id={it.id} key={it.id}>
-                    <span className="pill">{it.fee}</span>
-                    <h3 style={{ marginTop: 14 }}>{it.title}</h3>
-                    <div style={{ margin: "10px 0 4px", fontSize: "2rem", fontWeight: 800, letterSpacing: "-.02em" }}>
-                      {it.custom ? it.custom : <>{it.from ? <span style={{ fontSize: "1.1rem", fontWeight: 700 }}>{locale === "nl" ? "Vanaf " : "From "}</span> : null}{money(locale, it.price)}</>}
-                      {!it.custom && <small style={{ fontSize: ".8rem", color: "var(--mute)", fontWeight: 500, marginLeft: 6 }}>{it.monthly ? p.month : p.excl}</small>}
-                    </div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, margin: "8px 0 12px" }}>
-                      {it.tags.map((t) => <span key={t} className="pill" style={{ background: "var(--soft)", color: "var(--mute)", textTransform: "none", letterSpacing: 0 }}>{t}</span>)}
-                    </div>
-                    <p>{it.desc}</p>
-                    <div style={{ fontSize: ".8rem", color: "var(--mute)", fontWeight: 700, margin: "18px 0 6px", textTransform: "uppercase", letterSpacing: ".06em" }}>{p.includes}</div>
-                    <ul className="chk" style={{ marginTop: 6 }}>{it.includes.map((x) => <li key={x}>{x}</li>)}</ul>
-                    <div className="pl" style={{ marginTop: 18 }}><span style={{ color: "var(--mute)" }}>{p.time}</span><b>{it.time}</b></div>
-                    <div style={{ display: "grid", gap: 10, marginTop: 18 }}>
-                      {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it.title))}>{p.pay}</Cta>}
-                      <Cta className={"btn " + (it.cta === "pay" ? "btn-l" : "btn-d")} href={ask(it.title)}>{p.ask}</Cta>
-                    </div>
-                  </div>
-                ))}
+          <Tabs labels={p.groups.map((g) => g.title)} ids={p.groups.map((g) => g.items.map((i) => i.id).join(" "))}>
+            {p.groups.map((g, gi) => (
+              <div key={gi}>
+                <p className="pk-note">{g.text}</p>
+                <div className="pk-g">
+                  {g.items.map((it) => (
+                    <article className="pk" id={it.id} key={it.id}>
+                      <span className="pk-fee">{it.fee}</span>
+                      <h3>{it.title}</h3>
+                      <div className="pk-price">
+                        {it.custom ? it.custom : <>{it.from ? <span style={{ fontSize: "1.1rem", fontWeight: 700 }}>{locale === "nl" ? "Vanaf " : "From "}</span> : null}{money(locale, it.price)}</>}
+                        {!it.custom && <small>{it.monthly ? p.month : p.excl}</small>}
+                      </div>
+                      <div className="pk-tags">{it.tags.map((t) => <span key={t}>{t}</span>)}</div>
+                      <p className="pk-desc">{it.desc}</p>
+                      <div className="pk-time"><span>{p.time}</span><b>{it.time}</b></div>
+                      <div className="pk-btns">
+                        {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it.title))}>{p.pay}</Cta>}
+                        <Cta className={"btn " + (it.cta === "pay" ? "btn-l" : "btn-d")} href={ask(it.title)}>{p.ask}</Cta>
+                      </div>
+                      <div className="pk-inc"><b>{p.includes}</b><ul>{it.includes.map((x) => <li key={x}>{x}</li>)}</ul></div>
+                    </article>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </Tabs>
           <p className="note" style={{ textAlign: "center" }}>{p.vat}</p>
         </div>
       </section>

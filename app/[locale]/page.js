@@ -102,25 +102,25 @@ export default async function Home({ params }) {
         </div>
       </section>
 
-      <section id="pricing">
+      <section className="soft" id="pricing">
         <div className="w">
           <div className="head"><h2>{c.tiers.title}</h2><p>{c.tiers.text}</p></div>
-          <div className="g3">
+          <div className="st-g">
             {c.tiers.items.map((tier, i) => (
-              <div className={"card tier" + (tier.dark ? " dark" : "")} key={i}>
-                <span className="pill">{tier.tag}</span>
-                <h3 style={{ marginTop: 14 }}>{tier.title}</h3>
-                <p>{tier.text}</p>
-                <div className="lines">
+              <article className={"st-c" + (tier.dark ? " hl" : "")} key={i}>
+                <span className="st-l">{tier.tag}</span>
+                <h3>{tier.title}</h3>
+                <p className="st-t">{tier.text}</p>
+                <ul className="st-ls">
                   {tier.lines.map(([label, key, prefix, suffix]) => (
-                    <div className="pl" key={key}><span>{label}</span><b>{prefix}{money(locale, key)}{suffix || ""}</b></div>
+                    <li key={key}><span>{label}</span><b>{prefix}{money(locale, key)}{suffix || ""}</b></li>
                   ))}
-                </div>
-                <Cta className={"btn " + (tier.dark ? "btn-m" : "btn-d")} href={tier.wa ? wa(c.problems.waSuspended) : `/${locale}/contact`}>{tier.button}</Cta>
-              </div>
+                </ul>
+                <div className="st-b"><Cta className={"btn " + (tier.dark ? "btn-m" : "btn-d")} href={tier.wa ? wa(c.problems.waSuspended) : `/${locale}/pricing`}>{tier.button}</Cta></div>
+              </article>
             ))}
           </div>
-          <p className="note" style={{ textAlign: "center", marginTop: 20 }}>{c.tiers.vat}</p>
+          <p className="st-all"><Cta className="btn btn-l" href={`/${locale}/pricing`}>{c.tiers.link}</Cta></p>
         </div>
       </section>
 

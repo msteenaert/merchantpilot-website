@@ -25,8 +25,8 @@ export default async function Feed({ params }) {
             {it.from ? <span style={{ fontSize: "1rem" }}>{locale === "nl" ? "Vanaf " : "From "}</span> : null}{money(locale, it.price)}
             <small style={{ fontSize: ".8rem", color: "var(--mute)", fontWeight: 500, marginLeft: 6 }}>{it.monthly ? pr.month : pr.excl}</small>
           </div>
-          <ul className="chk">{it.includes.map((x) => <li key={x}>{x}</li>)}</ul>
-          <div style={{ display: "grid", gap: 10, marginTop: 18 }}>
+          <ul className="chk" style={{ marginBottom: 12 }}>{it.includes.map((x) => <li key={x}>{x}</li>)}</ul>
+          <div style={{ display: "grid", gap: 10, marginTop: "auto", paddingTop: 18 }}>
             {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it.title))}>{pr.pay}</Cta>}
             <Cta className={"btn " + (it.cta === "pay" ? "btn-l" : "btn-d")} href={ask(it.title)}>{pr.ask}</Cta>
           </div>
