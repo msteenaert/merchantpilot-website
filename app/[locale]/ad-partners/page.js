@@ -11,11 +11,14 @@ export async function generateMetadata({ params }) {
 }
 
 const agency = { google: "/agencies/bolt.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
+// Only partners with agreed deal prices are listed here (Pinterest partner example given by owner).
+const deal = { pinterest: { normal: 300, ours: 150, fee: 8 } };
 const logo = (id) => `/logos/${id === "google" ? "google-ads" : id}.png`;
 
 export default async function AdPartners({ params }) {
   const { locale } = await params;
   const a = ads[locale];
+  const cur = locale === "nl" ? "€" : "$";
   const c = content[locale];
 
   return (
@@ -56,8 +59,13 @@ export default async function AdPartners({ params }) {
                   <span className="ap-r">{x.tag}</span>
                 </div>
                 <h3>{x.role}</h3>
-                <p className="ap-d">{x.text}</p>
-                <ul>{x.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+                {deal[x.id] && (
+                  <div className="ap-deal">
+                    <div className="ap-was"><span>{locale === "nl" ? "Normaal" : "Normally"}</span><s>{cur}{deal[x.id].normal}</s><em>{locale === "nl" ? "per winkel" : "per store"}</em></div>
+                    <div className="ap-now"><span>{locale === "nl" ? "Via MerchantPilot" : "Via MerchantPilot"}</span><b>{cur}{deal[x.id].ours}</b><em>{locale === "nl" ? "per winkel" : "per store"}</em></div>
+                    <p className="ap-fee">{locale === "nl" ? `+ ${deal[x.id].fee}% advertentiekosten` : `+ ${deal[x.id].fee}% ad fee`}</p>
+                  </div>
+                )}
                 <Cta className="btn btn-d" href={waLink(locale, a.waIntro(x.name))}>{a.button}</Cta>
               </article>
             ))}

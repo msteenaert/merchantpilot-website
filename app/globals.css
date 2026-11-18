@@ -369,3 +369,14 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .ap-lg{background:var(--navy);border-radius:12px;height:52px;padding:0 16px;box-sizing:border-box}
 .ap-lg img{max-height:32px;max-width:140px;object-position:center}
 .ftr .trust{margin-top:0}
+/* ad partner cards: compact tag + deal block */
+.ap-top{flex-wrap:wrap}
+.ap-r{font-size:.64rem;padding:4px 9px;letter-spacing:.04em}
+.ap-deal{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:10px}
+.ap-was,.ap-now{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.ap-was span,.ap-now span{flex:1 0 100%;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.ap-now span{color:var(--mint-d)}
+.ap-was s{font-size:1.15rem;color:var(--mute)}
+.ap-now b{font-size:2.1rem;line-height:1;letter-spacing:-.02em}
+.ap-was em,.ap-now em{font-style:normal;font-size:.88rem;color:var(--mute)}
+.ap-fee{margin:0;font-size:.92rem;font-weight:600}
