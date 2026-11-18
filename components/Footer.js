@@ -6,39 +6,45 @@ import TrustRow from "./TrustRow";
 export default function Footer({ locale }) {
   const c = content[locale];
   const f = c.footer;
+  const nl = locale === "nl";
+  const p = `/${locale}/pricing`;
+  const cols = [
+    [f.services, [
+      [nl ? "GMC-opzet" : "GMC Setup", `${p}#gmc-setup`],
+      [nl ? "Herstel na schorsing" : "Suspension Recovery", `${p}#suspension-recovery`],
+      [nl ? "Snelle oplossingen" : "Quick Fixes", `${p}#feed-quick-fix`],
+      [nl ? "Feedbeheer" : "Feed Management", `/${locale}/feed-management`],
+      [nl ? "Maandabonnementen" : "Monthly Plans", `${p}#feed-monitoring`],
+      [f.pricing, p],
+    ]],
+    [f.company, [
+      [nl ? "Over ons" : "About", `/${locale}/about`],
+      ["Reviews", `/${locale}/reviews`],
+      [nl ? "Partnerprogramma" : "Partner program", `/${locale}/partners`],
+      [f.contact, `/${locale}/contact`],
+    ]],
+  ];
   return (
     <footer className="ftr">
       <div className="w">
-        <div className="cols">
-          <div>
-            <h4>{f.services}</h4>
-            <ul>
-              <li><Link href={`/${locale}`}>{f.home}</Link></li>
-              <li><Link href={`/${locale}/pricing`}>{f.pricing}</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4>{f.company}</h4>
-            <ul>
-              <li><Link href={`/${locale}/feed-management`}>{locale === "nl" ? "Feedbeheer" : "Feed management"}</Link></li>
-              <li><Link href={`/${locale}/reviews`}>Reviews</Link></li>
-              <li><Link href={`/${locale}/about`}>{locale === "nl" ? "Over ons" : "About"}</Link></li>
-              <li><Link href={`/${locale}/partners`}>{locale === "nl" ? "Partnerprogramma" : "Partner program"}</Link></li>
-              <li><Link href={`/${locale}/ad-partners`}>{locale === "nl" ? "Advertentiepartners" : "Ad partners"}</Link></li>
-              <li><Link href={`/${locale}/contact`}>{f.contact}</Link></li>
-            </ul>
-          </div>
+        <div className="ft-top">
+          {cols.map(([title, links]) => (
+            <div className="ft-col" key={title}>
+              <h3>{title}</h3>
+              <ul>{links.map(([t, h]) => <li key={t}><Link href={h}>{t}</Link></li>)}</ul>
+            </div>
+          ))}
         </div>
-        <div className="mid">
+        <div className="ft-mid">
           <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
+          {(OWNERS.milan || OWNERS.me) && (
+            <Link className="ft-own" href={`/${locale}/contact`}>
+              <span className="ft-oa">{[OWNERS.milan, OWNERS.me].filter(Boolean).map((src) => <span className="ft-oc" key={src}><img src={src} alt="" /></span>)}</span>
+              <span className="ft-ot"><b>{nl ? "Neem gerust contact op" : "Feel free to reach out"}</b><em>{nl ? "Eigenaren van MerchantPilot" : "Owners of MerchantPilot"}</em></span>
+            </Link>
+          )}
         </div>
-        {(OWNERS.milan || OWNERS.me) && (
-          <div style={{ display: "flex", alignItems: "center", gap: 10, justifyContent: "flex-end", margin: "16px 0" }}>
-            <span style={{ color: "#8FA3B8", fontSize: ".85rem" }}>{locale === "nl" ? "Neem gerust contact op" : "Feel free to reach out"}</span>
-            {[OWNERS.milan, OWNERS.me].filter(Boolean).map((src) => <img key={src} src={src} alt="" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }} />)}
-          </div>
-        )}
-        <div className="bot">© {new Date().getFullYear()} MerchantPilot. {f.rights}</div>
+        <div className="ft-bot"><p>© {new Date().getFullYear()} MerchantPilot. {f.rights}</p></div>
       </div>
     </footer>
   );
