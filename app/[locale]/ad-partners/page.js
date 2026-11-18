@@ -3,7 +3,6 @@ import { waLink } from "@/lib/site";
 import { content } from "@/lib/content";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
-import LogoStrip from "@/components/LogoStrip";
 import Cta from "@/components/Cta";
 
 export async function generateMetadata({ params }) {
@@ -11,6 +10,7 @@ export async function generateMetadata({ params }) {
   return { title: locale === "nl" ? "Advertentiepartners | MerchantPilot" : "Ad partners | MerchantPilot" };
 }
 
+const agency = { google: "/agencies/bolt.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
 const logo = (id) => `/logos/${id === "google" ? "google-ads" : id}.png`;
 
 export default async function AdPartners({ params }) {
@@ -46,8 +46,6 @@ export default async function AdPartners({ params }) {
         </div>
       </section>
 
-      <LogoStrip label={locale === "nl" ? "Onze advertentiebureaus" : "Our ad agencies"} logos={[["/agencies/ps.png", "Ad agency"], ["/agencies/mediagrow.png", "MediaGrow"], ["/agencies/bolt.png", "Ad agency"]]} />
-
       <section className="soft" id="partners">
         <div className="w">
           <div className="head"><h2>{a.partnersTitle}</h2><p>{a.partnersText}</p></div>
@@ -55,7 +53,7 @@ export default async function AdPartners({ params }) {
             {a.partners.map((x) => (
               <article className="ap-c" key={x.id}>
                 <div className="ap-top">
-                  <div className="ap-lg"><img src={logo(x.id)} alt={x.name} /></div>
+                  <div className="ap-lg"><img src={agency[x.id]} alt={x.name + " partner"} /></div>
                   <span className="ap-r">{x.tag}</span>
                 </div>
                 <h3>{x.role}</h3>
