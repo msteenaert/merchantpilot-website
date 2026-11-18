@@ -222,3 +222,5 @@ img.rva{object-fit:cover;display:block}
 @media(max-width:700px){.st-c{padding:24px}}
 section{padding-top:72px;padding-bottom:72px}.head{margin-bottom:36px}
 @media(max-width:700px){section{padding-top:44px;padding-bottom:44px}.head{margin-bottom:22px}}
+.tier{gap:12px}.tier h3{margin:0}.card .chk{margin:4px 0 0}.card .pill{align-self:flex-start}
+.cta .btn{margin-top:4px}
