@@ -10,7 +10,7 @@ export default function Header({ locale }) {
   return (
     <header className="hdr">
       <div className="w">
-        <Link href={`/${locale}`} className="logo"><img src="/brand/icon.png" alt="" /><span>MerchantPilot<small>Launch. Recover. Grow.</small></span></Link>
+        <Link href={`/${locale}`} className="logo"><img src="/brand/logo.png" alt="MerchantPilot" /></Link>
         <nav className="nav" aria-label="Main">
           {h.nav.map((l, i) => <Link key={l} href={links[i]}>{l}</Link>)}
         </nav>
