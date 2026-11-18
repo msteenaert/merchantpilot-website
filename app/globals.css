@@ -368,3 +368,4 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 /* agency logos on dark chips in partner cards */
 .ap-lg{background:var(--navy);border-radius:12px;height:52px;padding:0 16px;box-sizing:border-box}
 .ap-lg img{max-height:32px;max-width:140px;object-position:center}
+.ftr .trust{margin-top:0}
