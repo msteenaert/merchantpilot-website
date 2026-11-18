@@ -23,6 +23,7 @@ export default function Footer({ locale }) {
               <li><Link href={`/${locale}/feed-management`}>{locale === "nl" ? "Feedbeheer" : "Feed management"}</Link></li>
               <li><Link href={`/${locale}/reviews`}>Reviews</Link></li>
               <li><Link href={`/${locale}/about`}>{locale === "nl" ? "Over ons" : "About"}</Link></li>
+              <li><Link href={`/${locale}/partners`}>{locale === "nl" ? "Partnerprogramma" : "Partner program"}</Link></li>
               <li><Link href={`/${locale}/ad-partners`}>{locale === "nl" ? "Advertentiepartners" : "Ad partners"}</Link></li>
               <li><Link href={`/${locale}/contact`}>{f.contact}</Link></li>
             </ul>

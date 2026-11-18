@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { content } from "@/lib/content";
-import { money, waLink, waIsLive } from "@/lib/site";
+import { money, waLink, waIsLive, TRUST } from "@/lib/site";
+import HeroPlatforms from "@/components/HeroPlatforms";
+import ChatCta from "@/components/ChatCta";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
 
@@ -18,32 +20,23 @@ export default async function Home({ params }) {
 
   return (
     <>
-      <section className="hero" style={{ padding: undefined }}>
-        <div className="w g">
+      <section className="hf">
+        <div className="w">
           <div>
-            <span className="kick">{c.hero.kicker}</span>
+            <span className="hf-k"><i></i>{c.hero.kicker}</span>
             <h1>{c.hero.title}</h1>
-            <div className="btns">
+            <div className="hf-b">
               <Cta className="btn btn-m" href={wa(c.hero.waSetup)}>{c.hero.btn1}</Cta>
               <a className="btn btn-o" href="#problems">{c.hero.btn2}</a>
             </div>
-            <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
+            <div className="hf-tr">
+              <div className="hf-av">{TRUST.initials.map((x, i) => <span key={i}>{TRUST.photos[i] ? <img src={TRUST.photos[i]} alt="" /> : x}</span>)}</div>
+              <div className="hf-tt"><span className="hf-sr" aria-hidden="true">★★★★★</span><b>{c.hero.trustLine}</b><em>{c.hero.trustSub}</em></div>
+            </div>
           </div>
-          <div className="flow">
-            <h3>{c.hero.flowTitle}</h3>
-            {c.hero.flow.map(([a, b], i) => (
-              <div className="st" key={i}>
-                <span className="n">{i + 1}</span>
-                <div><b>{a}</b><small>{b}</small></div>
-              </div>
-            ))}
-          </div>
+          <HeroPlatforms locale={locale} />
         </div>
       </section>
-
-      <div className="strip">
-        <div className="w"><b>{c.logos}</b>{c.platforms.map((p) => <span key={p}>{p}</span>)}</div>
-      </div>
 
       <section id="problems">
         <div className="w">
@@ -156,13 +149,7 @@ export default async function Home({ params }) {
         </div>
       </section>
 
-      <section className="cta">
-        <div className="w">
-          <h2>{c.cta.title}</h2>
-          <p>{c.cta.text}</p>
-          <Cta className="btn btn-m" href={wa(c.cta.waText)}>{c.cta.button}</Cta>
-        </div>
-      </section>
+      <ChatCta locale={locale} />
     </>
   );
 }
