@@ -11,6 +11,7 @@ export default function Header({ locale }) {
         <nav className="nav" aria-label="Main">
           <Link href={`/${locale}`}>{t.home}</Link>
           <Link href={`/${locale}/pricing`}>{locale === "nl" ? "Prijzen" : "Pricing"}</Link>
+          <Link href={`/${locale}/reviews`}>Reviews</Link>
           <Link href={`/${locale}/ad-partners`}>{locale === "nl" ? "Advertentiepartners" : "Ad partners"}</Link>
           <Link href={`/${locale}/contact`}>{t.contact}</Link>
         </nav>
