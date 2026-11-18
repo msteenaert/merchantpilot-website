@@ -3,6 +3,7 @@ import { content } from "@/lib/content";
 import { money, waLink, waIsLive, TRUST } from "@/lib/site";
 import HeroPlatforms from "@/components/HeroPlatforms";
 import ChatCta from "@/components/ChatCta";
+import Icon from "@/components/Icon";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
 
@@ -39,43 +40,42 @@ export default async function Home({ params }) {
       </section>
 
       <section id="problems">
-        <div className="w">
+        <div className="w pb-wrap">
           <div className="head"><h2>{c.problems.title}</h2><p>{c.problems.text}</p></div>
-          <div className="g3">
+          <div className="grid3">
             {c.problems.items.map(([title, text, link, kind], i) => (
-              <div className={"card" + (i === 0 ? " sel" : "")} key={i}>
-                <div className="ico">{i + 1}</div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <Cta className="lnk" href={kind === "wa" ? wa(i === 0 ? c.hero.waSetup : c.problems.waSuspended) : `/${locale}/pricing`}>{link} →</Cta>
-              </div>
+              <Cta className={"card pb" + (i === 0 ? " hl" : "")} key={i} href={kind === "wa" ? wa(i === 0 ? c.hero.waSetup : c.problems.waSuspended) : `/${locale}/pricing`}>
+                <div className="ico"><Icon name={["shield", "refresh", "search", "feed", "pulse", "alert"][i]} /></div>
+                <div className="pb-t"><h3>{title}</h3><p>{text}</p></div>
+                <span className="go">{link} →</span>
+              </Cta>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="soft" id="setup">
-        <div className="w spot">
+      <section className="ss" id="setup">
+        <div className="w">
           <div>
-            <span className="kk">{c.setup.kicker}</span>
-            <h2 style={{ fontSize: "clamp(1.8rem,3.4vw,2.5rem)" }}>{c.setup.title}</h2>
-            <p style={{ color: "var(--mute)", fontSize: "1.1rem", marginTop: 14 }}>{c.setup.text}</p>
-            <ul className="chk">{c.setup.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+            <span className="ss-k">{c.setup.kicker}</span>
+            <h2>{c.setup.title}</h2>
+            <p style={{ color: "var(--mute)", fontSize: "1.05rem", marginTop: 14 }}>{c.setup.text}</p>
+            <ul className="ss-li">{c.setup.bullets.map((x) => <li key={x}>{x}</li>)}</ul>
           </div>
-          <div className="card">
-            <div className="stack">
+          <div className="ss-card">
+            <div className="ss-tl">
               {c.setup.cards.map(([a, b], i) => (
-                <div className={"row" + (i === 2 ? " m" : "")} key={i}>
-                  <span className="ico" style={{ margin: 0, width: 34, height: 34 }}>✓</span>
-                  <div><b>{a}</b><small>{b}</small></div>
+                <div className={"ss-nd" + (i === 2 ? " last" : "")} key={i}>
+                  <div className="ss-ic"><Icon name={["store", "feed", "shield"][i]} /></div>
+                  <div className="ss-tx"><b>{a}</b><em>{b}</em></div>
                 </div>
               ))}
             </div>
-            {c.setup.lines.map(([label, key]) => (
-              <div className="pl" key={key}><span>{label}</span><b>{money(locale, key)}</b></div>
-            ))}
-            <Cta className="btn btn-d" href={wa(c.hero.waSetup)}>{c.setup.button}</Cta>
-            <p className="note">{c.setup.note}</p>
+            <ul className="ss-p">
+              {c.setup.lines.map(([label, key]) => <li key={key}><span>{label}</span><b>{money(locale, key)}</b></li>)}
+            </ul>
+            <Cta className="btn btn-d ss-btn" href={wa(c.hero.waSetup)}>{c.setup.button}</Cta>
+            <p className="ss-n">{c.setup.note}</p>
           </div>
         </div>
       </section>
@@ -83,20 +83,12 @@ export default async function Home({ params }) {
       <section>
         <div className="w">
           <div className="head c"><h2>{c.trust.title}</h2></div>
-          <div className="g3">
+          <div className="tg-g" style={{ "--tg": 3 }}>
             {c.trust.items.map(([t, d], i) => (
-              <div className="card" key={i}><div className="ico">✓</div><h3>{t}</h3><p>{d}</p></div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="soft">
-        <div className="w">
-          <div className="head"><h2>{c.process.title}</h2><p>{c.process.text}</p></div>
-          <div className="steps">
-            {c.process.steps.map((s, i) => (
-              <div className="step" key={i}><div className="num">{i + 1}</div><b>{s}</b></div>
+              <div className="tg-c" key={i}>
+                <span className="tg-i"><Icon name={["people", "global", "price", "process", "shield", "price"][i]} /></span>
+                <h3>{t}</h3><p>{d}</p>
+              </div>
             ))}
           </div>
         </div>

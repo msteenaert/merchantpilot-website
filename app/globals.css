@@ -224,3 +224,35 @@ section{padding-top:72px;padding-bottom:72px}.head{margin-bottom:36px}
 @media(max-width:700px){section{padding-top:44px;padding-bottom:44px}.head{margin-bottom:22px}}
 .tier{gap:12px}.tier h3{margin:0}.card .chk{margin:4px 0 0}.card .pill{align-self:flex-start}
 .cta .btn{margin-top:4px}
+
+/* ===== icons + sections like Shopify ===== */
+.ico{width:44px;height:44px;border-radius:11px;background:var(--navy);display:grid;place-items:center;color:var(--mint);flex:none}
+.ico svg{width:22px;height:22px;stroke:var(--mint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:960px){.grid3{grid-template-columns:1fr 1fr}}@media(max-width:620px){.grid3{grid-template-columns:1fr}}
+.pb{display:flex;flex-direction:column;text-decoration:none;color:inherit;gap:10px;padding:28px;transition:border-color .2s,transform .2s}.pb:hover{transform:translateY(-2px);border-color:var(--mint-d)}
+.pb p{color:var(--mute);margin:0;font-size:.97rem}.pb h3{margin:0}.pb .go{margin-top:auto;padding-top:6px;font-weight:700;color:var(--mint-d);font-size:.92rem}
+.pb.hl{background:var(--navy);border-color:var(--navy);color:#fff}.pb.hl p{color:var(--on-navy)}.pb.hl .go{color:var(--mint)}.pb.hl h3{color:#fff}
+.pb-t{display:grid;gap:8px}
+@media(max-width:700px){.pb{flex-direction:row;align-items:center;gap:14px;padding:16px;min-height:76px}.pb-t{flex:1;gap:2px}.pb h3{font-size:1rem;line-height:1.25}.pb p{font-size:.88rem}.pb .go{margin:0;padding:0;font-size:0;flex:none}.pb .go::after{content:"→";font-size:1.3rem}.grid3{gap:10px}}
+.tg-g{display:grid;grid-template-columns:repeat(var(--tg,4),1fr);gap:20px}
+@media(max-width:960px){.tg-g{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.tg-g{grid-template-columns:1fr}}
+.tg-c{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;transition:border-color .2s,box-shadow .2s}
+.tg-c:hover{border-color:var(--mint-d);box-shadow:0 10px 30px rgba(16,37,61,.08)}
+.tg-i{width:60px;height:60px;border-radius:16px;background:var(--navy);display:grid;place-items:center}
+.tg-i svg{width:28px;height:28px;stroke:var(--mint);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tg-c h3{font-size:1.15rem;margin:0}.tg-c p{color:var(--mute);font-size:.98rem}
+.ss .w{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}@media(max-width:860px){.ss .w{grid-template-columns:1fr;gap:28px}}
+.ss h2{font-size:clamp(1.7rem,3vw,2.3rem);max-width:15em}
+.ss-k{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--mint-d);background:rgba(102,217,193,.16);padding:4px 12px;border-radius:99px;margin-bottom:14px}
+.ss-li{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}.ss-li li{display:flex;gap:12px;align-items:flex-start;color:var(--ink);font-size:1rem}.ss-li li::before{content:"✓";flex:none;color:var(--mint-d);font-weight:800}
+.ss-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;width:100%;max-width:460px;justify-self:center;box-sizing:border-box}
+.ss-tl{position:relative;display:grid;gap:26px}
+.ss-tl::before{content:"";position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:var(--line)}
+.ss-nd{position:relative;display:flex;align-items:center;gap:16px}
+.ss-ic{position:relative;flex:none;width:48px;height:48px;border-radius:14px;background:var(--navy);display:flex;align-items:center;justify-content:center}
+.ss-ic svg{display:block;width:24px;height:24px;stroke:var(--mint);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.ss-nd.last .ss-ic{background:var(--mint)}.ss-nd.last .ss-ic svg{stroke:var(--navy)}
+.ss-tx b{display:block;font-size:1.02rem;line-height:1.3}.ss-tx em{display:block;font-style:normal;font-size:.86rem;color:var(--mute);margin-top:2px;line-height:1.4}
+.ss-p{list-style:none;margin:26px 0 20px;padding:0}.ss-p li{display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:1rem}.ss-p li:last-child{border-bottom:1px solid var(--line)}.ss-p b{font-weight:800;white-space:nowrap}
+.ss-btn{width:100%;box-sizing:border-box;min-height:48px}
+.ss-n{margin:12px 0 0;font-size:.85rem;color:var(--mute);text-align:center}
