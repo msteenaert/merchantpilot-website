@@ -19,27 +19,28 @@ export default async function AdPartners({ params }) {
 
   return (
     <>
-      <section className="hero">
-        <div className="w g">
-          <div>
-            <span className="kick">{a.hero.kicker}</span>
+      <section className="ah">
+        <div className="w ah-g">
+          <div className="ah-l">
+            <p className="ah-k">{a.hero.kicker}</p>
             <h1>{a.hero.title}</h1>
-            <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", margin: "20px 0 0", maxWidth: 560 }}>{a.hero.text}</p>
-            <div className="btns">
+            <p className="ah-p">{a.hero.text}</p>
+            <div className="ah-b">
               <Cta className="btn btn-m" href={waLink(locale, a.hero.waText)}>{a.hero.btn1}</Cta>
               <a className="btn btn-o" href="#partners">{a.hero.btn2}</a>
             </div>
             <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
-            <p style={{ color: "#8FA3B8", fontSize: ".82rem", marginTop: 18, maxWidth: 520 }}>{a.hero.note}</p>
+            <p className="ah-n">{a.hero.note}</p>
           </div>
-          <div className="chan">
-            <div className="hub"><b>{a.hero.hubTitle}</b><small>{a.hero.hubSub}</small></div>
-            {a.channels.map(([id, name, tag]) => (
-              <div className={"tile t-" + id} key={id}>
-                <img src={logo(id)} alt={name} />
-                <span>{tag}</span>
+          <div className="ah-v">
+            <svg className="ah-ln" viewBox="0 0 100 92" preserveAspectRatio="none" aria-hidden="true"><line x1="18" y1="13" x2="50" y2="43" /><line x1="82" y1="13" x2="50" y2="43" /><line x1="50" y1="80" x2="50" y2="43" /></svg>
+            {a.channels.slice(0, 3).map(([id, name, tag], i) => (
+              <div className={"ah-t ah-t" + (i + 1)} key={id}>
+                <div className="ah-lg"><img src={logo(id)} alt={name} /></div>
+                <div className="ah-tg">{tag}</div>
               </div>
             ))}
+            <div className="ah-hub"><b>{a.hero.hubTitle}</b><small>{a.hero.hubSub}</small></div>
           </div>
         </div>
       </section>
@@ -47,26 +48,23 @@ export default async function AdPartners({ params }) {
       <section className="soft" id="partners">
         <div className="w">
           <div className="head"><h2>{a.partnersTitle}</h2><p>{a.partnersText}</p></div>
-          <div className="g3">
+          <div className="ap-g">
             {a.partners.map((x) => (
-              <div className="card tier" key={x.id}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, marginBottom: 16 }}>
-                  <img src={logo(x.id)} alt={x.name} style={{ height: 40, maxWidth: 150, objectFit: "contain" }} />
-                  <span className="pill">{x.tag}</span>
+              <article className="ap-c" key={x.id}>
+                <div className="ap-top">
+                  <div className="ap-lg"><img src={logo(x.id)} alt={x.name} /></div>
+                  <span className="ap-r">{x.tag}</span>
                 </div>
                 <h3>{x.role}</h3>
-                <p style={{ marginTop: 8 }}>{x.text}</p>
-                <ul className="chk">{x.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
-                <div className="pl" style={{ marginTop: 18 }}><span style={{ color: "var(--mute)" }}>{a.priceLabel}</span><b>{a.priceFallback}</b></div>
-                <div style={{ background: "#E7F8F4", border: "1px solid #BFEBE0", borderRadius: 12, padding: "12px 14px", margin: "16px 0 20px" }}>
-                  <div style={{ fontSize: ".72rem", fontWeight: 800, letterSpacing: ".06em", textTransform: "uppercase", color: "var(--mint-d)" }}>{a.discountLabel}</div>
-                  <div style={{ fontSize: ".92rem" }}>{a.discount}</div>
-                </div>
+                <p className="ap-d">{x.text}</p>
+                <ul>{x.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
+                <dl className="ap-pr"><dt>{a.priceLabel}</dt><dd>{a.priceFallback}</dd></dl>
+                <div className="ap-ds"><b>{a.discountLabel}</b>{a.discount}</div>
                 <Cta className="btn btn-d" href={waLink(locale, a.waIntro(x.name))}>{a.button}</Cta>
-              </div>
+              </article>
             ))}
           </div>
-          <p className="note" style={{ textAlign: "center", marginTop: 20 }}>{a.partnerNote}</p>
+          <p className="ap-note">{a.partnerNote}</p>
         </div>
       </section>
 
