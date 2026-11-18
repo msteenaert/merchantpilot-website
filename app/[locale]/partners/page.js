@@ -1,7 +1,6 @@
 import { partners } from "@/lib/partners";
 import { money, commission } from "@/lib/site";
 import PartnerForm from "@/components/PartnerForm";
-import LogoStrip from "@/components/LogoStrip";
 import Icon from "@/components/Icon";
 
 export async function generateMetadata({ params }) {
@@ -40,8 +39,6 @@ export default async function Partners({ params }) {
           </div>
         </div>
       </section>
-
-      <LogoStrip label={locale === "nl" ? "Onze agencypartners" : "Our agency partners"} logos={[["/agencies/ps.png", "Agency partner"], ["/agencies/mediagrow.png", "MediaGrow"], ["/agencies/bolt.png", "Agency partner"]]} />
 
       <section>
         <div className="w">

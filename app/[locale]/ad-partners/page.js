@@ -3,6 +3,7 @@ import { waLink } from "@/lib/site";
 import { content } from "@/lib/content";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
+import LogoStrip from "@/components/LogoStrip";
 import Cta from "@/components/Cta";
 
 export async function generateMetadata({ params }) {
@@ -44,6 +45,8 @@ export default async function AdPartners({ params }) {
           </div>
         </div>
       </section>
+
+      <LogoStrip label={locale === "nl" ? "Onze advertentiebureaus" : "Our ad agencies"} logos={[["/agencies/ps.png", "Ad agency"], ["/agencies/mediagrow.png", "MediaGrow"], ["/agencies/bolt.png", "Ad agency"]]} />
 
       <section className="soft" id="partners">
         <div className="w">
