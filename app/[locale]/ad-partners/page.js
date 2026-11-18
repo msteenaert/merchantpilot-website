@@ -19,7 +19,7 @@ const logo = (id) => `/logos/${id === "google" ? "google-ads" : id}.png`;
 export default async function AdPartners({ params }) {
   const { locale } = await params;
   const a = ads[locale];
-  const cur = locale === "nl" ? "€" : "$";
+  const cur = "€";
   const c = content[locale];
 
   return (
@@ -63,8 +63,8 @@ export default async function AdPartners({ params }) {
                 <p className="ap-mb">{a.mediaBuyer}</p>
                 {deal[x.id] && (
                   <div className="ap-deal">
-                    <div className="ap-was"><span>{locale === "nl" ? "Normaal" : "Normally"}</span><s>{cur}{deal[x.id].normal}</s><em>{locale === "nl" ? "per winkel" : "per store"}</em></div>
-                    <div className="ap-now"><span>{locale === "nl" ? "Via MerchantPilot" : "Via MerchantPilot"}</span><b>{cur}{deal[x.id].ours}</b><em>{locale === "nl" ? "per winkel" : "per store"}</em></div>
+                    <div className="ap-was"><span>{locale === "nl" ? "Normaal" : "Normally"}</span><s>{cur}{deal[x.id].normal}</s><em>{locale === "nl" ? "per maand" : "per month"}</em></div>
+                    <div className="ap-now"><span>{locale === "nl" ? "Via MerchantPilot" : "Via MerchantPilot"}</span><b>{cur}{deal[x.id].ours}</b><em>{locale === "nl" ? "per maand" : "per month"}</em></div>
                     <p className="ap-fee">{locale === "nl" ? `+ ${deal[x.id].fee}% advertentiekosten` : `+ ${deal[x.id].fee}% ad fee`}</p>
                   </div>
                 )}
