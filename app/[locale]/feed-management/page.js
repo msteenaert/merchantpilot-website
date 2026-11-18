@@ -40,7 +40,6 @@ export default async function Feed({ params }) {
         <h1 style={{ maxWidth: 860 }}>{p.hero.title}</h1>
         <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", maxWidth: 680, marginTop: 18 }}>{p.hero.text}</p>
         <div className="btns"><a className="btn btn-m" href="#feed-pricing">{p.hero.btn}</a></div>
-        <p style={{ color: "#8FA3B8", fontSize: ".85rem", marginTop: 16 }}>{p.hero.note}</p>
       </div></section>
       <section><div className="w">
         <div className="head"><h2>{p.benefitsTitle}</h2><p>{p.benefitsText}</p></div>
@@ -51,7 +50,6 @@ export default async function Feed({ params }) {
         <Grid items={byId(p.once)} />
         <div className="head" style={{ marginTop: 56 }}><h2>{p.monthlyTitle}</h2></div>
         <Grid items={byId(p.monthly)} />
-        <p className="note" style={{ textAlign: "center", marginTop: 24 }}>{pr.vat}</p>
         <div style={{ textAlign: "center", marginTop: 12 }}><Cta className="btn btn-d" href={`/${locale}/pricing`}>{p.packagesBtn}</Cta></div>
       </div></section>
       <section><div className="w g2">

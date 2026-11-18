@@ -18,7 +18,6 @@ export default async function Contact({ params }) {
               ? <a className="btn btn-m" href={href} target="_blank" rel="noopener">{c.wa}</a>
               : null}
           </div>
-          <p style={{ color: "#8FA3B8", fontSize: ".85rem", marginTop: 22 }}>{c.note}</p>
         </div>
       </section>
       <section className="soft">

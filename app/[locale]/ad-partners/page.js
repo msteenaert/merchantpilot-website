@@ -31,7 +31,6 @@ export default async function AdPartners({ params }) {
               <a className="btn btn-o" href="#partners">{a.hero.btn2}</a>
             </div>
             <TrustRow line={c.hero.trustLine} sub={c.hero.trustSub} />
-            <p className="ah-n">{a.hero.note}</p>
           </div>
           <div className="ah-v">
             <svg className="ah-ln" viewBox="0 0 100 92" preserveAspectRatio="none" aria-hidden="true"><line x1="18" y1="13" x2="50" y2="43" /><line x1="82" y1="13" x2="50" y2="43" /><line x1="50" y1="80" x2="50" y2="43" /></svg>
@@ -59,13 +58,10 @@ export default async function AdPartners({ params }) {
                 <h3>{x.role}</h3>
                 <p className="ap-d">{x.text}</p>
                 <ul>{x.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
-                <dl className="ap-pr"><dt>{a.priceLabel}</dt><dd>{a.priceFallback}</dd></dl>
-                <div className="ap-ds"><b>{a.discountLabel}</b>{a.discount}</div>
                 <Cta className="btn btn-d" href={waLink(locale, a.waIntro(x.name))}>{a.button}</Cta>
               </article>
             ))}
           </div>
-          <p className="ap-note">{a.partnerNote}</p>
         </div>
       </section>
 

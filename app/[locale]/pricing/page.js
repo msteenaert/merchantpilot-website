@@ -63,7 +63,6 @@ export default async function Pricing({ params }) {
               </div>
             ))}
           </Tabs>
-          <p className="note" style={{ textAlign: "center" }}>{p.vat}</p>
         </div>
       </section>
 
@@ -85,7 +84,6 @@ export default async function Pricing({ params }) {
               </tbody>
             </table>
           </div>
-          <p className="note">{p.fine}</p>
         </div>
       </section>
 

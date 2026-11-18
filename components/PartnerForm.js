@@ -31,7 +31,6 @@ export default function PartnerForm({ locale, t }) {
         </div>
         <input className="hp" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         <div className="pf-b"><button className="btn btn-m" type="submit" disabled={state === "sending"}>{state === "sending" ? t.sending : t.button}</button></div>
-        <p className="pf-fine">{t.fine}</p>
       </form>
     </div>
   );

@@ -63,7 +63,6 @@ export default async function Partners({ params }) {
               </article>
             ))}
           </div>
-          <p className="cm-n">{p.commFine}</p>
         </div>
       </section>
 

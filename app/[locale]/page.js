@@ -75,7 +75,6 @@ export default async function Home({ params }) {
               {c.setup.lines.map(([label, key]) => <li key={key}><span>{label}</span><b>{money(locale, key)}</b></li>)}
             </ul>
             <Cta className="btn btn-d ss-btn" href={wa(c.hero.waSetup)}>{c.setup.button}</Cta>
-            <p className="ss-n">{c.setup.note}</p>
           </div>
         </div>
       </section>

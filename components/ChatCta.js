@@ -30,7 +30,6 @@ export default function ChatCta({ locale }) {
             <input name="contact" placeholder={c.ph} aria-label={c.ph} />
             <button className="btn btn-m" type="submit">{c.send}</button>
           </form>
-          <p className="ask-fine">{c.fine}</p>
         </div>
       </div>
     </section>

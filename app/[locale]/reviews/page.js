@@ -17,7 +17,6 @@ export default async function Reviews({ params }) {
       <section className="hero"><div className="w">
         <h1 style={{ maxWidth: 820 }}>{p.hero.title}</h1>
         <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", maxWidth: 680, marginTop: 18 }}>{p.hero.text}</p>
-        <p style={{ color: "var(--mint)", fontWeight: 700, marginTop: 14 }}>{p.hero.note}</p>
       </div></section>
       <section><div className="w">
         <div className="head"><h2>{p.standardsTitle}</h2><p>{p.standardsText}</p></div>
