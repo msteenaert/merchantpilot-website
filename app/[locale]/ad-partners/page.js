@@ -11,15 +11,30 @@ export async function generateMetadata({ params }) {
 }
 
 const agency = { google: "/agencies/storm.png", meta: "/agencies/mediagrow.png", pinterest: "/agencies/ps.png" };
-// Placeholder deal prices for all three until the real numbers are provided.
-const D = { normal: 300, ours: 150, fee: 8 };
-const deal = { google: D, meta: D, pinterest: D };
+// Deal blocks per partner. Google (Storm) is real; Meta and Pinterest still use placeholder numbers.
+const P = {
+  en: { was: "Normally", now: "Via MerchantPilot", month: "per month", fee: "+ 8% ad fee" },
+  nl: { was: "Normaal", now: "Via MerchantPilot", month: "per maand", fee: "+ 8% advertentiekosten" },
+};
+const deals = (l) => {
+  const t = P[l], nl = l === "nl";
+  const std = { was: ["€300", t.month, t.fee], now: ["€150", t.month, t.fee] };
+  return {
+    google: {
+      was: ["€1.000".replace(".", nl ? "." : ","), nl ? "eenmalige opstart" : "one-time setup", nl ? "+ 12,5% van je advertentiebudget" : "+ 12.5% of your ad spend"],
+      now: ["8%", nl ? "advertentiekosten" : "ad fee", nl ? "Goedgekeurd Merchant Center vereist" : "Approved Merchant Center required"],
+    },
+    meta: std,
+    pinterest: std,
+  };
+};
 const logo = (id) => `/logos/${id === "google" ? "google-ads" : id}.png`;
 
 export default async function AdPartners({ params }) {
   const { locale } = await params;
   const a = ads[locale];
-  const cur = "€";
+  const deal = deals(locale);
+  const t = P[locale];
   const c = content[locale];
 
   return (
@@ -63,9 +78,8 @@ export default async function AdPartners({ params }) {
                 <p className="ap-mb">{a.mediaBuyer}</p>
                 {deal[x.id] && (
                   <div className="ap-deal">
-                    <div className="ap-was"><span>{locale === "nl" ? "Normaal" : "Normally"}</span><s>{cur}{deal[x.id].normal}</s><em>{locale === "nl" ? "per maand" : "per month"}</em></div>
-                    <div className="ap-now"><span>{locale === "nl" ? "Via MerchantPilot" : "Via MerchantPilot"}</span><b>{cur}{deal[x.id].ours}</b><em>{locale === "nl" ? "per maand" : "per month"}</em></div>
-                    <p className="ap-fee">{locale === "nl" ? `+ ${deal[x.id].fee}% advertentiekosten` : `+ ${deal[x.id].fee}% ad fee`}</p>
+                    <div className="ap-was"><span>{t.was}</span><s>{deal[x.id].was[0]}</s><em>{deal[x.id].was[1]}</em><i>{deal[x.id].was[2]}</i></div>
+                    <div className="ap-now"><span>{t.now}</span><b>{deal[x.id].now[0]}</b><em>{deal[x.id].now[1]}</em><i>{deal[x.id].now[2]}</i></div>
                   </div>
                 )}
                 <Cta className="btn btn-d" href={waLink(locale, a.waIntro(x.name))}>{a.button}</Cta>

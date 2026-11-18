@@ -391,3 +391,5 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .ap-c .btn{margin-top:auto}
 .ap-mb{margin:-8px 0 0;color:var(--mute);font-size:.95rem}
 .ap-lg img{max-height:36px}
+.ap-was i,.ap-now i{flex:1 0 100%;font-style:normal;font-size:.9rem;font-weight:600;color:var(--ink)}
+.ap-was i{color:var(--mute);font-weight:500}
