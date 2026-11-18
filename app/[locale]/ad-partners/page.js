@@ -60,6 +60,7 @@ export default async function AdPartners({ params }) {
                   <span className="ap-r">{x.tag}</span>
                 </div>
                 <h3>{x.role}</h3>
+                <p className="ap-mb">{a.mediaBuyer}</p>
                 {deal[x.id] && (
                   <div className="ap-deal">
                     <div className="ap-was"><span>{locale === "nl" ? "Normaal" : "Normally"}</span><s>{cur}{deal[x.id].normal}</s><em>{locale === "nl" ? "per winkel" : "per store"}</em></div>
