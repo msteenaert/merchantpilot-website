@@ -1,0 +1,35 @@
+import { content } from "@/lib/content";
+import { waLink } from "@/lib/site";
+import ContactForm from "@/components/ContactForm";
+
+export default async function Contact({ params }) {
+  const { locale } = await params;
+  const c = content[locale].contact;
+  const href = waLink(locale, content[locale].cta.waText);
+  const external = href.startsWith("http");
+  return (
+    <>
+      <section className="hero">
+        <div className="w">
+          <h1 style={{ maxWidth: 760 }}>{c.title}</h1>
+          <p style={{ color: "var(--on-navy)", fontSize: "1.15rem", maxWidth: 640, marginTop: 18 }}>{c.text}</p>
+          <div className="btns">
+            {external
+              ? <a className="btn btn-m" href={href} target="_blank" rel="noopener">{c.wa}</a>
+              : null}
+          </div>
+          <p style={{ color: "#8FA3B8", fontSize: ".85rem", marginTop: 22 }}>{c.note}</p>
+        </div>
+      </section>
+      <section className="soft">
+        <div className="w" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 48 }}>
+          <div className="head" style={{ margin: 0 }}>
+            <h2>{c.formTitle}</h2>
+            <p>{c.formText}</p>
+          </div>
+          <div className="card"><ContactForm locale={locale} t={c} /></div>
+        </div>
+      </section>
+    </>
+  );
+}
