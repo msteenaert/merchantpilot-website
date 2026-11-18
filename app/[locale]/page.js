@@ -54,7 +54,7 @@ export default async function Home({ params }) {
                 <div className="ico">{i + 1}</div>
                 <h3>{title}</h3>
                 <p>{text}</p>
-                <Cta className="lnk" href={kind === "wa" ? wa(i === 0 ? c.hero.waSetup : c.problems.waSuspended) : `/${locale}#pricing`}>{link} →</Cta>
+                <Cta className="lnk" href={kind === "wa" ? wa(i === 0 ? c.hero.waSetup : c.problems.waSuspended) : `/${locale}/pricing`}>{link} →</Cta>
               </div>
             ))}
           </div>

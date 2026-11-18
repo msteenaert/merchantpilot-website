@@ -13,12 +13,13 @@ export default function Footer({ locale }) {
             <h4>{f.services}</h4>
             <ul>
               <li><Link href={`/${locale}`}>{f.home}</Link></li>
-              <li><Link href={`/${locale}#pricing`}>{f.pricing}</Link></li>
+              <li><Link href={`/${locale}/pricing`}>{f.pricing}</Link></li>
             </ul>
           </div>
           <div>
             <h4>{f.company}</h4>
             <ul>
+              <li><Link href={`/${locale}/ad-partners`}>{locale === "nl" ? "Advertentiepartners" : "Ad partners"}</Link></li>
               <li><Link href={`/${locale}/contact`}>{f.contact}</Link></li>
             </ul>
           </div>
