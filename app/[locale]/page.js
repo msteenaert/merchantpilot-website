@@ -27,7 +27,7 @@ export default async function Home({ params }) {
             <span className="hf-k"><i></i>{c.hero.kicker}</span>
             <h1>{c.hero.title}</h1>
             <div className="hf-b">
-              <Cta className="btn btn-m" href={wa(c.hero.waSetup)}>{c.hero.btn1}</Cta>
+              <Cta className="btn btn-m" href={`/${locale}/pricing`}>{c.hero.btn1}</Cta>
               <a className="btn btn-o" href="#problems">{c.hero.btn2}</a>
             </div>
             <div className="hf-tr">
@@ -44,7 +44,7 @@ export default async function Home({ params }) {
           <div className="head"><h2>{c.problems.title}</h2><p>{c.problems.text}</p></div>
           <div className="grid3">
             {c.problems.items.map(([title, text, link, kind], i) => (
-              <Cta className={"card pb" + (i === 0 ? " hl" : "")} key={i} href={kind === "wa" ? wa(i === 0 ? c.hero.waSetup : c.problems.waSuspended) : `/${locale}/pricing`}>
+              <Cta className={"card pb" + (i === 0 ? " hl" : "")} key={i} href={kind === "wa" ? `/${locale}/${i === 0 ? "pricing" : "feed-management"}` : `/${locale}/pricing`}>
                 <div className="ico"><Icon name={["shield", "refresh", "search", "feed", "pulse", "alert"][i]} /></div>
                 <div className="pb-t"><h3>{title}</h3><p>{text}</p></div>
                 <span className="go">{link} →</span>
@@ -74,7 +74,7 @@ export default async function Home({ params }) {
             <ul className="ss-p">
               {c.setup.lines.map(([label, key]) => <li key={key}><span>{label}</span><b>{money(locale, key)}</b></li>)}
             </ul>
-            <Cta className="btn btn-d ss-btn" href={wa(c.hero.waSetup)}>{c.setup.button}</Cta>
+            <Cta className="btn btn-d ss-btn" href={`/${locale}/pricing`}>{c.setup.button}</Cta>
           </div>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default async function Home({ params }) {
                     <li key={key}><span>{label}</span><b>{prefix}{money(locale, key)}{suffix || ""}</b></li>
                   ))}
                 </ul>
-                <div className="st-b"><Cta className={"btn " + (tier.dark ? "btn-m" : "btn-d")} href={tier.wa ? wa(c.problems.waSuspended) : `/${locale}/pricing`}>{tier.button}</Cta></div>
+                <div className="st-b"><Cta className={"btn " + (tier.dark ? "btn-m" : "btn-d")} href={tier.wa ? `/${locale}/feed-management` : `/${locale}/pricing`}>{tier.button}</Cta></div>
               </article>
             ))}
           </div>
