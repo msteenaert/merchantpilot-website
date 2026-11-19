@@ -448,10 +448,11 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 
 /* Legal pages */
 .lg-doc{max-width:780px}
-.lg-s{margin:0 0 34px}
+.lg-s{margin:0 0 48px}
 .lg-s h2{font-size:1.3rem;margin:0 0 12px}
-.lg-s p{color:var(--ink,#1b2a3a);line-height:1.7;margin:0 0 12px}
-.lg-s p.lg-i{padding-left:20px}
+.lg-s p{color:var(--ink,#1b2a3a);line-height:1.75;margin:0 0 22px}
+.lg-s p.lg-i{padding-left:20px;margin-bottom:16px}
+.lg-s h2{margin-bottom:18px}
 .lg-c{list-style:none;margin:0;padding:0;display:grid;gap:10px;line-height:1.6}
 .lg-c li{display:grid;grid-template-columns:260px 1fr;gap:16px}
 .lg-c b{font-weight:600}
