@@ -1,5 +1,6 @@
 import { aboutPage } from "@/lib/pages2";
 import { waLink, OWNERS } from "@/lib/site";
+import Icon from "@/components/Icon";
 import ChatCta from "@/components/ChatCta";
 
 export async function generateMetadata({ params }) {
@@ -31,8 +32,8 @@ export default async function About({ params }) {
         </div>
       </div></section>
       <section><div className="w">
-        <div className="head"><h2>{p.valuesTitle}</h2></div>
-        <div className="g3">{p.values.map(([t, d]) => <div className="card" key={t}><h3>{t}</h3><p style={{ color: "var(--mute)", marginTop: 8 }}>{d}</p></div>)}</div>
+        <div className="head c"><h2>{p.valuesTitle}</h2></div>
+        <div className="tg-g" style={{ "--tg": 3 }}>{p.values.map(([t, d], i) => <div className="tg-c" key={t}><span className="tg-i"><Icon name={["price", "shield", "search"][i % 3]} /></span><h3>{t}</h3><p>{d}</p></div>)}</div>
       </div></section>
       <ChatCta locale={locale} />
     </>
