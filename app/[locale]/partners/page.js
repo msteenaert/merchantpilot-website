@@ -2,6 +2,7 @@ import { partners } from "@/lib/partners";
 import { money, commission } from "@/lib/site";
 import PartnerForm from "@/components/PartnerForm";
 import Faq from "@/components/Faq";
+import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
 
 export async function generateMetadata({ params }) {
@@ -34,11 +35,11 @@ export default async function Partners({ params }) {
           <div className="hw-h"><h2>{p.howTitle}</h2><p>{p.howText}</p></div>
           <div className="hw-s">
             {p.how.map(([k, t, d], i) => (
-              <article className="hw-c" key={k}>
+              <Reveal className="hw-c" key={k}>
                 <span className="hw-k">{k}</span>
                 <h3><Icon name={stepIcons[i]} />{t}</h3>
                 <p>{d}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
         </div>

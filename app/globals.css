@@ -439,3 +439,9 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .hw-c h3 svg{width:28px;height:28px;flex:none;stroke:var(--mint-d);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 .hw-c p{margin:0;color:var(--mute);line-height:1.65}
 @media(max-width:900px){.hw{grid-template-columns:1fr;gap:26px}.hw-h{position:static}.hw-s{padding-left:28px}.hw-c{padding:22px}.hw-c::before{left:-28px}}
+/* scroll reveal */
+.rvl{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rvl.rvl-pre{opacity:0;transform:translateY(36px)}
+.rvl.rvl-pre.hw-c::before{transform:scale(.3)}
+.hw-c::before{transition:transform .5s ease .15s}
+@media(prefers-reduced-motion:reduce){.rvl,.hw-c::before{transition:none}.rvl.rvl-pre{opacity:1;transform:none}}
