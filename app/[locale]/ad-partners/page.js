@@ -45,7 +45,6 @@ export default async function AdPartners({ params }) {
           <div className="ah-l">
             <p className="ah-k">{a.hero.kicker}</p>
             <h1>{a.hero.title}</h1>
-            <p className="ah-p">{a.hero.text}</p>
             <div className="ah-b">
               <Cta className="btn btn-m" href={waLink(locale, a.hero.waText)}>{a.hero.btn1}</Cta>
               <a className="btn btn-o" href="#partners">{a.hero.btn2}</a>
