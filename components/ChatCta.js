@@ -1,5 +1,6 @@
 import { home } from "@/lib/home";
 import { waLink, waIsLive } from "@/lib/site";
+import WhoBadge from "./WhoBadge";
 import Cta from "./Cta";
 
 export default function ChatCta({ locale }) {
@@ -18,10 +19,7 @@ export default function ChatCta({ locale }) {
           </div>
         </div>
         <div className="ask-t">
-          <div className="ask-who">
-            <img src="/people/milan.jpg" alt="Milan" />
-            <span><b>{locale === "nl" ? "Hier om te helpen" : "Here to help"}</b><em>{locale === "nl" ? "Milan, medeoprichter" : "Milan, co-founder"}</em></span>
-          </div>
+          <WhoBadge locale={locale} />
           <h2>{c.title}</h2>
           <p className="sub">{c.text}</p>
           {waIsLive() && (

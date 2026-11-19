@@ -418,3 +418,9 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .ask-who{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;padding:6px 18px 6px 6px;border:1px solid rgba(255,255,255,.16);border-radius:99px;background:rgba(255,255,255,.05)}
 .ask-who img{width:46px;height:46px;border-radius:50%;object-fit:cover;display:block;border:2px solid var(--mint);flex:none}
 .ask-who span{line-height:1.25}.ask-who b{display:block;color:#fff;font-size:.95rem}.ask-who em{display:block;font-style:normal;color:var(--on-navy);font-size:.82rem}
+/* bigger person badge, centered in centered CTA bands */
+.ask-who{gap:16px;padding:8px 24px 8px 8px;margin-bottom:22px}
+.ask-who img{width:64px;height:64px;border-width:2.5px}
+.ask-who b{font-size:1.08rem}.ask-who em{font-size:.92rem}
+.cta .ask-who{margin:0 auto 22px;text-align:left}
+@media(max-width:700px){.ask-who img{width:56px;height:56px}}

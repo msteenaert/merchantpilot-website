@@ -2,6 +2,7 @@ import { feedPage } from "@/lib/pages2";
 import { pricing } from "@/lib/pages";
 import { money, waLink, payLink } from "@/lib/site";
 import Faq from "@/components/Faq";
+import WhoBadge from "@/components/WhoBadge";
 import Cta from "@/components/Cta";
 
 export async function generateMetadata({ params }) {
@@ -61,6 +62,7 @@ export default async function Feed({ params }) {
         <Faq items={p.faq} />
       </div></section>
       <section className="cta"><div className="w">
+          <WhoBadge locale={locale} />
         <h2>{p.hero.title}</h2>
         <Cta className="btn btn-m" href={waLink(locale, p.wa)}>{locale === "nl" ? "Stuur ons een bericht op WhatsApp" : "Message us on WhatsApp"}</Cta>
       </div></section>

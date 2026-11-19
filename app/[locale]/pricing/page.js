@@ -2,6 +2,7 @@ import { pricing } from "@/lib/pages";
 import { money, waLink, payLink } from "@/lib/site";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
+import WhoBadge from "@/components/WhoBadge";
 import Cta from "@/components/Cta";
 import Tabs from "@/components/Tabs";
 import FlowHero from "@/components/FlowHero";
@@ -96,6 +97,7 @@ export default async function Pricing({ params }) {
 
       <section className="cta">
         <div className="w">
+          <WhoBadge locale={locale} />
           <h2>{c.cta.title}</h2>
           <p>{c.cta.text}</p>
           <Cta className="btn btn-m" href={waLink(locale, c.cta.waText)}>{c.cta.button}</Cta>

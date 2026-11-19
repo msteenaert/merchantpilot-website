@@ -3,6 +3,7 @@ import { waLink } from "@/lib/site";
 import { content } from "@/lib/content";
 import TrustRow from "@/components/TrustRow";
 import Faq from "@/components/Faq";
+import WhoBadge from "@/components/WhoBadge";
 import Cta from "@/components/Cta";
 
 export async function generateMetadata({ params }) {
@@ -109,6 +110,7 @@ export default async function AdPartners({ params }) {
 
       <section className="cta">
         <div className="w">
+          <WhoBadge locale={locale} />
           <h2>{a.cta.title}</h2>
           <p>{a.cta.text}</p>
           <Cta className="btn btn-m" href={waLink(locale, a.hero.waText)}>{a.cta.button}</Cta>
