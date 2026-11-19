@@ -15,7 +15,7 @@ export default function FeedVisual({ locale }) {
         ))}
       </div>
       <div className="fv-c fv-rd">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z" /><path d="M9 12l2 2 4-4" /></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z" /><path pathLength="1" d="M9 12l2 2 4-4" /></svg>
         <b>{t.ready}</b>
       </div>
     </div>

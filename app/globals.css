@@ -506,3 +506,16 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 
 .fw{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
 .fw span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:12px 20px;font-weight:600}
+/* Feed visual: rows appear one by one, then the final card pops with its checkmark */
+.fv-rd{opacity:0;transform:scale(.9);animation:fvpop .55s 1.6s cubic-bezier(.34,1.56,.64,1) forwards}
+.fv-rd svg path:last-child{stroke-dasharray:1;stroke-dashoffset:1;animation:fvdraw .45s 1.95s ease-out forwards}
+.fv-rd svg{animation:fvbump .5s 2s ease-out}
+.fv-rd b{animation:fvglow 1.2s 1.9s ease-out}
+.fv-ok{animation:fvchip .4s both cubic-bezier(.34,1.56,.64,1)}
+.fv-r:nth-child(2) .fv-ok{animation-delay:.7s}.fv-r:nth-child(3) .fv-ok{animation-delay:1.05s}.fv-r:nth-child(4) .fv-ok{animation-delay:1.4s}
+@keyframes fvpop{to{opacity:1;transform:none}}
+@keyframes fvdraw{to{stroke-dashoffset:0}}
+@keyframes fvbump{0%{transform:scale(1)}50%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes fvchip{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@keyframes fvglow{0%{text-shadow:0 0 0 rgba(102,217,193,0)}40%{text-shadow:0 0 18px rgba(102,217,193,.9)}100%{text-shadow:0 0 0 rgba(102,217,193,0)}}
+@media(prefers-reduced-motion:reduce){.fv-rd{animation:none;opacity:1;transform:none}.fv-rd svg,.fv-rd b,.fv-ok{animation:none}.fv-rd svg path:last-child{animation:none;stroke-dashoffset:0}}
