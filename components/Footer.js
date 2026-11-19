@@ -23,6 +23,9 @@ export default function Footer({ locale }) {
       [nl ? "Partnerprogramma" : "Partner program", `/${locale}/partners`],
       [f.contact, `/${locale}/contact`],
     ]],
+    [nl ? "Juridisch" : "Legal", [
+      [nl ? "Algemene voorwaarden" : "Terms and Conditions", `/${locale}/terms`],
+    ]],
   ];
   return (
     <footer className="ftr">

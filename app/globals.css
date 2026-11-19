@@ -106,7 +106,7 @@ section{padding:84px 0}
 /* footer (like Shopify: one divider line only) */
 .ftr{background:var(--navy2);color:var(--on-navy);padding:40px 0;font-size:.88rem}
 .ftr .w{display:block}
-.ft-top{display:grid;grid-template-columns:repeat(2,minmax(0,220px));justify-content:start;gap:96px;padding-bottom:36px}
+.ft-top{display:grid;grid-template-columns:repeat(3,minmax(0,220px));justify-content:start;gap:96px;padding-bottom:36px}
 .ft-col h3{color:#fff;font-size:1.05rem;margin:0 0 18px;font-weight:600}
 .ft-col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .ft-col a{color:var(--on-navy);font-size:.97rem;text-decoration:none}.ft-col a:hover{color:#fff;text-decoration:underline}
@@ -445,3 +445,12 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .rvl.rvl-pre.hw-c::before{transform:scale(.3)}
 .hw-c::before{transition:transform .5s ease .15s}
 @media(prefers-reduced-motion:reduce){.rvl,.hw-c::before{transition:none}.rvl.rvl-pre{opacity:1;transform:none}}
+
+/* Legal pages */
+.lg-doc{max-width:780px}
+.lg-s{margin:0 0 34px}
+.lg-s h2{font-size:1.3rem;margin:0 0 12px}
+.lg-s p{color:var(--ink,#1b2a3a);line-height:1.7;margin:0 0 12px}
+.lg-s p.lg-i{padding-left:20px}
+.lg-c{list-style:none;margin:0;padding:0;display:grid;gap:8px;line-height:1.6}
+.lg-c b{display:inline-block;min-width:200px}
