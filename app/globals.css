@@ -117,7 +117,7 @@ section{padding:84px 0}
 .ft-ot{line-height:1.3}.ft-ot b{display:block;font-weight:600;color:#fff;font-size:.92rem}.ft-ot em{display:block;font-style:normal;font-size:.8rem;color:var(--on-navy)}
 .ft-bot{padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}.ft-bot p{margin:0;font-size:.88rem}
 @media(max-width:900px){.ft-top{grid-template-columns:1fr 1fr;gap:36px 28px}}
-@media(max-width:700px){.ft-own{margin-left:0;width:100%}.ft-top{gap:40px 24px}.ft-col h3{margin-bottom:22px}.ft-col ul{gap:20px}.ft-col a{display:block;line-height:1.35}}
+@media(max-width:700px){.ft-own{margin-left:0;width:100%}}
 
 /* Ad partners hero visual */
 .chan{position:relative;width:100%;max-width:480px;margin-left:auto;aspect-ratio:1/1;}
