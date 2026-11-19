@@ -519,3 +519,11 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 @keyframes fvchip{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @keyframes fvglow{0%{text-shadow:0 0 0 rgba(102,217,193,0)}40%{text-shadow:0 0 18px rgba(102,217,193,.9)}100%{text-shadow:0 0 0 rgba(102,217,193,0)}}
 @media(prefers-reduced-motion:reduce){.fv-rd{animation:none;opacity:1;transform:none}.fv-rd svg,.fv-rd b,.fv-ok{animation:none}.fv-rd svg path:last-child{animation:none;stroke-dashoffset:0}}
+/* Pricing hero chart: realistic path with phases */
+.hf-rt{font-size:1.35rem}
+.hf-gl{fill:none;stroke:rgba(255,255,255,.14);stroke-width:1}
+.hf-dt{fill:var(--navy2);stroke:var(--mint);stroke-width:2.5;opacity:0;animation:hfdot .35s both ease-out}
+@keyframes hfdot{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+.hf-dt{transform-box:fill-box;transform-origin:center}
+.hf-phs{display:flex;justify-content:space-between;margin-top:6px;font-size:.78rem;color:var(--on-navy);font-weight:600}
+@media(prefers-reduced-motion:reduce){.hf-dt{animation:none;opacity:1}}

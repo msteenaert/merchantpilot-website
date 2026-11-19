@@ -8,9 +8,11 @@ const icons = [
 
 export default function FlowHero({ locale }) {
   const h = content[locale].hero;
-  const roas = locale === "nl"
-    ? ["ROAS 3+", "Richting ROAS 3 en hoger zodra Google goedkeurt."]
-    : ["ROAS 3+", "Scale toward ROAS 3 and up once Google approves."];
+  const nl = locale === "nl";
+  const roas = nl
+    ? ["Richting een stabiele ROAS", "Eerst herstellen, dan stap voor stap opschalen. Resultaten verschillen."]
+    : ["Toward a stable ROAS", "Fix first, then scale step by step. Results vary."];
+  const phases = nl ? ["Herstel", "Goedgekeurd", "Stabiel", "Opschalen"] : ["Fix", "Approved", "Stable", "Scale"];
   return (
     <div className="hf-fx" role="img" aria-label={h.flowTitle}>
       <div className="hf-c">
@@ -24,7 +26,12 @@ export default function FlowHero({ locale }) {
       </div>
       <div className="hf-c hf-rc">
         <p className="hf-rt">{roas[0]}</p><p className="hf-rs">{roas[1]}</p>
-        <svg viewBox="0 0 300 80" aria-hidden="true"><path className="hf-up" pathLength="1" d="M4 70 C60 66 90 52 130 44 S200 24 296 10" /></svg>
+        <svg viewBox="0 0 300 100" aria-hidden="true">
+          <path className="hf-gl" d="M4 92H296" />
+          <path className="hf-up" pathLength="1" d="M4 90H34C50 90 58 70 76 66C90 63 96 73 108 69C128 62 140 47 158 45C171 44 177 52 190 47C216 37 240 22 296 12" />
+          {[[22, 90], [76, 66], [158, 45], [290, 13]].map(([cx, cy], k) => <circle key={k} className="hf-dt" cx={cx} cy={cy} r="4.5" style={{ animationDelay: `${0.5 + k * 0.45}s` }} />)}
+        </svg>
+        <div className="hf-phs">{phases.map((x) => <span key={x}>{x}</span>)}</div>
       </div>
     </div>
   );
