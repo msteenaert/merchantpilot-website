@@ -1,6 +1,7 @@
 import { partners } from "@/lib/partners";
 import { money, commission } from "@/lib/site";
 import PartnerForm from "@/components/PartnerForm";
+import Faq from "@/components/Faq";
 import Icon from "@/components/Icon";
 
 export async function generateMetadata({ params }) {
@@ -16,26 +17,29 @@ export default async function Partners({ params }) {
   const stepIcons = ["people", "shield", "cash"];
   return (
     <>
-      <section className="prh">
+      <section className="prh prh-t">
         <div className="w">
-          <div>
-            <span className="prh-k"><i></i>{p.hero.kicker}</span>
-            <h1>{p.hero.title}</h1>
-            <p className="lead">{p.hero.text}</p>
-            <div className="prh-b">
-              <a className="btn btn-m" href="#apply">{p.hero.btn1}</a>
-              <a className="btn btn-o" href="#commission">{p.hero.btn2}</a>
-            </div>
+          <span className="prh-k"><i></i>{p.hero.kicker} · {locale === "nl" ? "10% commissie" : "earn 10% commission"}</span>
+          <h1>{p.hero.title}</h1>
+          <p className="lead">{p.hero.text}</p>
+          <div className="prh-b">
+            <a className="btn btn-m" href="#apply">{p.hero.btn1}</a>
+            <a className="btn btn-o" href="#how">{p.hero.btn2}</a>
           </div>
-          <div className="prh-c" id="how">
-            <div className="prh-tl">
-              {p.hero.steps.map(([a, b], i) => (
-                <div className={"prh-nd" + (i === 2 ? " last" : "")} key={a}>
-                  <div className="prh-ic"><Icon name={stepIcons[i]} /></div>
-                  <div className="prh-tx"><strong>{a}</strong><span>{b}</span></div>
-                </div>
-              ))}
-            </div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div className="w hw">
+          <div className="hw-h"><h2>{p.howTitle}</h2><p>{p.howText}</p></div>
+          <div className="hw-s">
+            {p.how.map(([k, t, d], i) => (
+              <article className="hw-c" key={k}>
+                <span className="hw-k">{k}</span>
+                <h3><Icon name={stepIcons[i]} />{t}</h3>
+                <p>{d}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -90,6 +94,13 @@ export default async function Partners({ params }) {
               <div className="tg-c" key={t}><span className="tg-i"><Icon name={whyIcons[i]} /></span><h3>{t}</h3><p>{d}</p></div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="soft">
+        <div className="w">
+          <div className="head c"><h2>{p.faqTitle}</h2></div>
+          <Faq items={p.faq} />
         </div>
       </section>
 
