@@ -13,7 +13,7 @@ export default async function Partners({ params }) {
   const p = partners[locale];
   const whoIcons = ["chart", "code", "megaphone", "briefcase", "user"];
   const whyIcons = ["shield", "people", "chart", "process", "support", "global"];
-  const stepIcons = ["people", "shield", "euro"];
+  const stepIcons = ["people", "shield", "cash"];
   return (
     <>
       <section className="prh">
