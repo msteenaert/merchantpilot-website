@@ -18,6 +18,10 @@ export default function ChatCta({ locale }) {
           </div>
         </div>
         <div className="ask-t">
+          <div className="ask-who">
+            <img src="/people/milan.jpg" alt="Milan" />
+            <span><b>{locale === "nl" ? "Hier om te helpen" : "Here to help"}</b><em>{locale === "nl" ? "Milan, medeoprichter" : "Milan, co-founder"}</em></span>
+          </div>
           <h2>{c.title}</h2>
           <p className="sub">{c.text}</p>
           {waIsLive() && (

@@ -414,3 +414,7 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 @keyframes cktp{0%,100%{opacity:.32}50%{opacity:.6}}
 @media(max-width:700px){.hf::before,.prh::before,.ah::before,.hero::before{background-size:40px 40px}.hf::after,.prh::after,.ah::after,.hero::after{opacity:.3;background-position:60% bottom}}
 @media(prefers-reduced-motion:reduce){.hf::after,.prh::after,.ah::after,.hero::after{animation:none}}
+/* chat CTA: person badge */
+.ask-who{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;padding:6px 18px 6px 6px;border:1px solid rgba(255,255,255,.16);border-radius:99px;background:rgba(255,255,255,.05)}
+.ask-who img{width:46px;height:46px;border-radius:50%;object-fit:cover;display:block;border:2px solid var(--mint);flex:none}
+.ask-who span{line-height:1.25}.ask-who b{display:block;color:#fff;font-size:.95rem}.ask-who em{display:block;font-style:normal;color:var(--on-navy);font-size:.82rem}
