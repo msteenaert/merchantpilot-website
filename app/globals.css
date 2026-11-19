@@ -400,3 +400,17 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .step .num{width:44px;height:44px;margin:0 0 18px;background:rgba(102,217,193,.18);color:var(--mint-d);border:1.5px solid var(--mint);font-size:1.05rem}
 .step b{font-size:1.15rem;line-height:1.3}
 .step p{line-height:1.6}
+
+/* tech grid + circuit lines in dark headers (ecomflows-style) */
+.hf,.prh,.ah,.hero{position:relative;isolation:isolate}
+.hf::before,.prh::before,.ah::before,.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background-image:linear-gradient(rgba(102,217,193,.085) 1px,transparent 1px),linear-gradient(90deg,rgba(102,217,193,.085) 1px,transparent 1px);
+ background-size:56px 56px;background-position:center top;
+ -webkit-mask-image:radial-gradient(ellipse 85% 95% at 50% 100%,#000 8%,transparent 78%);mask-image:radial-gradient(ellipse 85% 95% at 50% 100%,#000 8%,transparent 78%)}
+.hf::after,.prh::after,.ah::after,.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+ background:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1440 640%22 fill=%22none%22 stroke=%22%2366D9C1%22 stroke-width=%221.5%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%0A%3Cg opacity=%22.55%22%3E%0A%3Cpath d=%22M0 470H210L270 410H470L520 360H640%22/%3E%3Cpath d=%22M0 560H130L190 500H330%22/%3E%3Cpath d=%22M0 300H90L150 240H260%22/%3E%0A%3Cpath d=%22M1440 150H1230L1170 210H980L930 260H820V330%22/%3E%3Cpath d=%22M1440 470H1300L1240 530H1060%22/%3E%3Cpath d=%22M1440 330H1380L1320 390H1210%22/%3E%0A%3Cpath d=%22M640 640V560L700 500H760%22/%3E%3Cpath d=%22M880 640V590L820 530%22/%3E%0A%3C/g%3E%0A%3Cg fill=%22%2310253D%22 stroke-width=%222%22%3E%0A%3Ccircle cx=%22640%22 cy=%22360%22 r=%225%22/%3E%3Ccircle cx=%22330%22 cy=%22500%22 r=%225%22/%3E%3Ccircle cx=%22260%22 cy=%22240%22 r=%225%22/%3E%3Ccircle cx=%22820%22 cy=%22330%22 r=%225%22/%3E%3Ccircle cx=%221060%22 cy=%22530%22 r=%225%22/%3E%3Ccircle cx=%221210%22 cy=%22390%22 r=%225%22/%3E%3Ccircle cx=%22760%22 cy=%22500%22 r=%225%22/%3E%3Ccircle cx=%22820%22 cy=%22530%22 r=%224%22/%3E%0A%3C/g%3E%3C/svg%3E") center bottom/cover no-repeat;
+ -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 40%,#000 100%);mask-image:linear-gradient(180deg,transparent 0,#000 40%,#000 100%);
+ animation:cktp 7s ease-in-out infinite}
+@keyframes cktp{0%,100%{opacity:.32}50%{opacity:.6}}
+@media(max-width:700px){.hf::before,.prh::before,.ah::before,.hero::before{background-size:40px 40px}.hf::after,.prh::after,.ah::after,.hero::after{opacity:.3;background-position:60% bottom}}
+@media(prefers-reduced-motion:reduce){.hf::after,.prh::after,.ah::after,.hero::after{animation:none}}
