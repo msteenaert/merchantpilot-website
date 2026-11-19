@@ -1,6 +1,6 @@
 import { aboutPage } from "@/lib/pages2";
 import { waLink, OWNERS } from "@/lib/site";
-import Cta from "@/components/Cta";
+import ChatCta from "@/components/ChatCta";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -34,10 +34,7 @@ export default async function About({ params }) {
         <div className="head"><h2>{p.valuesTitle}</h2></div>
         <div className="g3">{p.values.map(([t, d]) => <div className="card" key={t}><h3>{t}</h3><p style={{ color: "var(--mute)", marginTop: 8 }}>{d}</p></div>)}</div>
       </div></section>
-      <section className="cta"><div className="w">
-        <h2>{p.ctaTitle}</h2><p>{p.ctaText}</p>
-        <Cta className="btn btn-m" href={waLink(locale, p.wa)}>{p.ctaBtn}</Cta>
-      </div></section>
+      <ChatCta locale={locale} />
     </>
   );
 }

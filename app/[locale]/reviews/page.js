@@ -1,7 +1,7 @@
 import { reviewsPage } from "@/lib/pages2";
 import { content } from "@/lib/content";
 import { waLink, TRUST } from "@/lib/site";
-import Cta from "@/components/Cta";
+import ChatCta from "@/components/ChatCta";
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -40,10 +40,7 @@ export default async function Reviews({ params }) {
       <section><div className="w">
         <div className="head"><h2>{p.resultsTitle}</h2><p>{p.resultsEmpty}</p></div>
       </div></section>
-      <section className="cta"><div className="w">
-        <h2>{p.ctaTitle}</h2><p>{p.ctaText}</p>
-        <Cta className="btn btn-m" href={waLink(locale, p.wa)}>{p.ctaBtn}</Cta>
-      </div></section>
+      <ChatCta locale={locale} />
     </>
   );
 }
