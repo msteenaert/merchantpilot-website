@@ -25,6 +25,7 @@ export default function Footer({ locale }) {
     ]],
     [nl ? "Juridisch" : "Legal", [
       [nl ? "Algemene voorwaarden" : "Terms and Conditions", `/${locale}/terms`],
+      [nl ? "Privacy (Google-data)" : "Privacy Policy – Google Data", `/${locale}/privacy-google`],
     ]],
   ];
   return (
