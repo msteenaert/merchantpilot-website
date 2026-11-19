@@ -14,7 +14,7 @@ export default function FlowHero({ locale }) {
   return (
     <div className="hf-fx" role="img" aria-label={h.flowTitle}>
       <div className="hf-c">
-        <div className="hf-fh"><span className="hf-fi"><img src="/logos/google-ads.png" alt="" /></span><b>{h.flowTitle}</b></div>
+        <div className="hf-fh"><span className="hf-fi"><img src="/logos/merchant-center.png" alt="" /></span><b>{h.flowTitle}</b></div>
         {h.flow.map(([a, b], k) => (
           <div key={a}>
             {k > 0 && <i className="hf-ln" />}
