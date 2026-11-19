@@ -134,11 +134,14 @@ export default async function Feed({ params }) {
         <Faq items={p.faq} />
       </div></section>
 
-      <section className="cta"><div className="w">
-        <WhoBadge locale={locale} />
-        <h2>{p.hero.title}</h2>
-        <Cta className="btn btn-m" href={waLink(locale, p.wa)}>{locale === "nl" ? "Stuur ons een bericht op WhatsApp" : "Message us on WhatsApp"}</Cta>
-      </div></section>
+      <section className="cta">
+        <div className="w">
+          <WhoBadge locale={locale} />
+          <h2>{c.cta.title}</h2>
+          <p>{c.cta.text}</p>
+          <Cta className="btn btn-m" href={waLink(locale, c.cta.waText)}>{c.cta.button}</Cta>
+        </div>
+      </section>
     </>
   );
 }
