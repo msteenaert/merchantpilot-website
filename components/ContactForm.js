@@ -25,14 +25,12 @@ export default function ContactForm({ locale, t }) {
   return (
     <form className="cform" onSubmit={onSubmit}>
       <label>{t.name}<input name="name" required maxLength={120} autoComplete="name" /></label>
-      <label>{t.email}<input name="email" type="email" required maxLength={200} autoComplete="email" /></label>
-      <label>{t.website}<input name="website" placeholder="https://" maxLength={300} /></label>
-      <label>{t.topic}
-        <select name="topic" defaultValue="">
-          {t.topics.map((x, i) => <option key={i} value={i === 0 ? "" : x}>{x}</option>)}
+      <label>{t.contact}<input name="contact" required maxLength={200} autoComplete="email" inputMode="email" /></label>
+      <label>{t.business}
+        <select name="business" defaultValue={t.businessOptions[0]}>
+          {t.businessOptions.map((x) => <option key={x} value={x}>{x}</option>)}
         </select>
       </label>
-      <label>{t.message}<textarea name="message" maxLength={4000} /></label>
       <input className="hp" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <button className="btn btn-d" type="submit" disabled={state === "sending"}>
         {state === "sending" ? t.sending : t.send}

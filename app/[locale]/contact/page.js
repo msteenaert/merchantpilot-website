@@ -26,7 +26,7 @@ export default async function Contact({ params }) {
             <h2>{c.formTitle}</h2>
             <p>{c.formText}</p>
           </div>
-          <div className="card"><ContactForm locale={locale} t={c} /></div>
+          <div className="card"><ContactForm locale={locale} t={{ ...c, ...c.fields }} /></div>
         </div>
       </section>
     </>

@@ -12,15 +12,19 @@ export async function POST(req) {
   // Honeypot: bots fill this field, people do not.
   if (body.company) return NextResponse.json({ ok: true });
 
+  // "contact" is a phone number or an email address. The partner form still sends "email".
+  const contact = clip(body.contact || body.email, 200);
+  const isEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact);
+  const isPhone = /^\+?[\d\s().-]{6,}$/.test(contact) && contact.replace(/\D/g, "").length >= 6;
   const row = {
     name: clip(body.name, 120),
-    email: clip(body.email, 200),
+    email: contact,
     website: clip(body.website, 300) || null,
-    topic: clip(body.topic, 100) || null,
+    topic: clip(body.topic || body.business, 100) || null,
     message: clip(body.message, 4000) || null,
     locale: body.locale === "nl" ? "nl" : "en",
   };
-  if (!row.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(row.email)) {
+  if (!row.name || !(isEmail || isPhone)) {
     return NextResponse.json({ error: "invalid" }, { status: 400 });
   }
 
