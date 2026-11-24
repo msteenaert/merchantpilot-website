@@ -55,7 +55,7 @@ export default async function Pricing({ params }) {
                       <div className="pk-time"><span>{p.time}</span><b>{it.time}</b></div>
                       <div className="pk-btns">
                         {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it.title))}>{p.pay}</Cta>}
-                        <Cta className={"btn " + (it.cta === "pay" ? "btn-l" : "btn-d")} href={ask(it.title)}>{p.ask}</Cta>
+                        {it.cta !== "pay" && <Cta className="btn btn-d" href={ask(it.title)}>{p.ask}</Cta>}
                       </div>
                       <div className="pk-inc"><b>{p.includes}</b><ul>{it.includes.map((x) => <li key={x}>{x}</li>)}</ul></div>
                     </article>
