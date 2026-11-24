@@ -537,3 +537,7 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .wf-i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#25D366;box-shadow:0 8px 28px rgba(37,211,102,.4);transition:transform .2s}
 .wf:hover .wf-i{transform:scale(1.07)}
 @media(max-width:640px){.wf{right:16px;bottom:16px}.wf-t{display:none}.wf-i{width:58px;height:58px}}
+.wf-t{opacity:0;transform:translateX(10px);pointer-events:none;animation:wfpop 26s ease-in-out 3s infinite}
+.wf:hover .wf-t,.wf:focus-visible .wf-t{animation:none;opacity:1;transform:none}
+@keyframes wfpop{0%{opacity:0;transform:translateX(10px)}4%,32%{opacity:1;transform:none}36%,100%{opacity:0;transform:translateX(10px)}}
+@media(prefers-reduced-motion:reduce){.wf-t{animation:none}}
