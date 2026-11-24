@@ -527,3 +527,4 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .hf-dt{transform-box:fill-box;transform-origin:center}
 .hf-phs{display:flex;justify-content:space-between;margin-top:6px;font-size:.78rem;color:var(--on-navy);font-weight:600}
 @media(prefers-reduced-motion:reduce){.hf-dt{animation:none;opacity:1}}
+.pk-add{margin:0;padding:10px 12px;border:1px dashed var(--line);border-radius:12px;font-size:.88rem;color:var(--mute)}.pk-add b{color:var(--ink);white-space:nowrap}
