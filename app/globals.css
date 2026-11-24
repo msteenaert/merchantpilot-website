@@ -543,3 +543,6 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 @media(prefers-reduced-motion:reduce){.wf-t{animation:none}}
 .wf,.wf:focus{outline:none}
 .wf:focus-visible .wf-i{outline:3px solid #fff;outline-offset:-6px;box-shadow:0 0 0 3px #25D366,0 8px 28px rgba(37,211,102,.4)}
+
+.wf-i{background:none;box-shadow:0 8px 24px rgba(31,183,85,.38)}.wf-i svg{display:block;width:100%;height:100%}
+@media(max-width:640px){.wf-i svg{width:100%;height:100%}}
