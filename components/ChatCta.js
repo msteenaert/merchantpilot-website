@@ -22,16 +22,10 @@ export default function ChatCta({ locale }) {
           <WhoBadge locale={locale} />
           <h2>{c.title}</h2>
           <p className="sub">{c.text}</p>
-          {waIsLive() && (
-            <>
-              <div className="ask-bt"><Cta className="btn btn-m" href={waLink(locale, c.wa)}>{c.btn}</Cta></div>
-              <p className="ask-or">{c.or}</p>
-            </>
-          )}
-          <form className="ask-form" action={`/${locale}/contact`}>
-            <input name="contact" placeholder={c.ph} aria-label={c.ph} />
-            <button className="btn btn-m" type="submit">{c.send}</button>
-          </form>
+          <div className="ask-bt">
+            {waIsLive() && <Cta className="btn btn-m" href={waLink(locale, c.wa)}>{c.btn}</Cta>}
+            <Cta className="btn btn-o" href={`/${locale}/pricing#feed-quick-fix`}>{c.btn2}</Cta>
+          </div>
         </div>
       </div>
     </section>

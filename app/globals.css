@@ -552,3 +552,8 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 .wf-b{position:absolute;right:-2px;bottom:-2px;width:26px;height:26px;border-radius:50%;background:#25D366;border:2px solid #fff;display:grid;place-items:center;box-sizing:border-box}
 .wf-b svg{display:block;width:15px;height:15px}
 @media(max-width:640px){.wf-i{width:60px;height:60px}}
+
+/* WhatsApp logo button (replaces owner photo) */
+.wf-i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#25D366;box-shadow:0 8px 28px rgba(37,211,102,.4);padding:0}
+.wf-i svg{display:block;width:34px;height:34px}
+@media(max-width:640px){.wf-i{width:58px;height:58px}.wf-i svg{width:30px;height:30px}}
