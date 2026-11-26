@@ -1,6 +1,7 @@
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase";
+import { cleanRef } from "@/lib/ref";
 
 export const runtime = "nodejs";
 
@@ -47,7 +48,10 @@ export async function POST(req) {
   const supabase = supabaseServer();
   if (!supabase) return NextResponse.json({ error: "not_configured" }, { status: 503 });
 
-  const { error } = await supabase.from("orders").upsert(row, { onConflict: "stripe_session_id" });
+  const ref = cleanRef(s.client_reference_id);
+  let { error } = await supabase.from("orders").upsert(ref ? { ...row, ref } : row, { onConflict: "stripe_session_id" });
+  // The ref column may not exist yet (partners.sql not run): save the order without it.
+  if (error && ref) ({ error } = await supabase.from("orders").upsert(row, { onConflict: "stripe_session_id" }));
   if (error) {
     console.error("order upsert failed", error.message);
     return NextResponse.json({ error: "db" }, { status: 500 });

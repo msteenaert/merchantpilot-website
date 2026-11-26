@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { getRefCookie } from "@/lib/ref";
 
 export default function ContactForm({ locale, t }) {
   const [state, setState] = useState("idle");
@@ -12,7 +13,7 @@ export default function ContactForm({ locale, t }) {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, locale }),
+        body: JSON.stringify({ ...data, locale, ref: getRefCookie() }),
       });
       if (!res.ok) throw new Error("bad");
       setState("ok");

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase";
+import { cleanRef } from "@/lib/ref";
 
 export const runtime = "nodejs";
 
@@ -31,7 +32,10 @@ export async function POST(req) {
   const supabase = supabaseServer();
   if (!supabase) return NextResponse.json({ error: "not_configured" }, { status: 503 });
 
-  const { error } = await supabase.from("contact_requests").insert(row);
+  const ref = cleanRef(body.ref);
+  let { error } = await supabase.from("contact_requests").insert(ref ? { ...row, ref } : row);
+  // The ref column may not exist yet (partners.sql not run): save the request without it.
+  if (error && ref) ({ error } = await supabase.from("contact_requests").insert(row));
   if (error) {
     console.error("contact insert failed", error.message);
     return NextResponse.json({ error: "db" }, { status: 500 });

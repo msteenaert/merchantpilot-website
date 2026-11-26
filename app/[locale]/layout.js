@@ -4,6 +4,7 @@ import { locales } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import RefTracker from "@/components/RefTracker";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -30,6 +31,7 @@ export default async function LocaleLayout({ children, params }) {
         <main>{children}</main>
         <Footer locale={locale} />
         <WhatsAppFloat locale={locale} />
+        <RefTracker />
       </body>
     </html>
   );

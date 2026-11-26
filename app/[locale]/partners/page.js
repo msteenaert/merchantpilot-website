@@ -1,6 +1,7 @@
 import { partners } from "@/lib/partners";
 import { money, commission } from "@/lib/site";
 import PartnerForm from "@/components/PartnerForm";
+import PartnerPortal from "@/components/PartnerPortal";
 import Faq from "@/components/Faq";
 import Reveal from "@/components/Reveal";
 import Icon from "@/components/Icon";
@@ -27,6 +28,7 @@ export default async function Partners({ params }) {
             <a className="btn btn-m" href="#apply">{p.hero.btn1}</a>
             <a className="btn btn-o" href="#how">{p.hero.btn2}</a>
           </div>
+          <p className="prh-l"><a href="#portal">{locale === "nl" ? "Al partner? Bekijk je dashboard" : "Already a partner? View your dashboard"}</a></p>
         </div>
       </section>
 
@@ -102,6 +104,13 @@ export default async function Partners({ params }) {
         <div className="w">
           <div className="head c"><h2>{p.faqTitle}</h2></div>
           <Faq items={p.faq} />
+        </div>
+      </section>
+
+      <section id="portal">
+        <div className="w pp-w">
+          <div className="head"><h2>{locale === "nl" ? "Partner dashboard" : "Partner dashboard"}</h2><p>{locale === "nl" ? "Bekijk de klanten die je hebt doorgestuurd en je commissie. Gebruik de code en toegangssleutel die je van ons kreeg." : "See the clients you referred and your commission. Use the code and access key we sent you."}</p></div>
+          <PartnerPortal locale={locale} />
         </div>
       </section>
 
