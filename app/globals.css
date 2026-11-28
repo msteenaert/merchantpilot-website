@@ -575,3 +575,5 @@ section.lgs{padding:44px 0 48px;background:var(--navy2);border-top:1px solid rgb
 
 .ct-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
 @media(max-width:820px){.ct-g{grid-template-columns:minmax(0,1fr);gap:24px}}
+
+.hf-rt,.tr-rt{display:flex;align-items:center;gap:8px}.hf-rt b,.tr-rt b{display:inline!important;font-size:.95rem}.hf-rt .hf-sr{display:inline-block}.trust em{display:block;margin-top:2px}

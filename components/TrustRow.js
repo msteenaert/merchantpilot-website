@@ -9,8 +9,7 @@ export default function TrustRow({ line, sub }) {
         ))}
       </div>
       <div>
-        <span className="stars" aria-hidden="true">★★★★★</span>
-        <b>{line}</b>
+        <div className="tr-rt"><span className="stars" aria-hidden="true">★★★★★</span><b>{line}/5</b></div>
         <em>{sub}</em>
       </div>
     </div>

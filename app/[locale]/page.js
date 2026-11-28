@@ -32,7 +32,7 @@ export default async function Home({ params }) {
             </div>
             <div className="hf-tr">
               <div className="hf-av">{TRUST.initials.map((x, i) => <span key={i}>{TRUST.photos[i] ? <img src={TRUST.photos[i]} alt="" /> : x}</span>)}</div>
-              <div className="hf-tt"><span className="hf-sr" aria-hidden="true">★★★★★</span><b>{c.hero.trustLine}</b><em>{c.hero.trustSub}</em></div>
+              <div className="hf-tt"><div className="hf-rt"><span className="hf-sr" aria-hidden="true">★★★★★</span><b>{c.hero.trustLine}/5</b></div><em>{c.hero.trustSub}</em></div>
             </div>
           </div>
           <HeroPlatforms locale={locale} />
