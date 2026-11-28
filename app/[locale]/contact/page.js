@@ -2,6 +2,11 @@ import { content } from "@/lib/content";
 import { waLink } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  return { title: (locale === "nl" ? "Contact" : "Contact") + " | MerchantPilot" };
+}
+
 export default async function Contact({ params }) {
   const { locale } = await params;
   const c = content[locale].contact;
@@ -21,7 +26,7 @@ export default async function Contact({ params }) {
         </div>
       </section>
       <section className="soft">
-        <div className="w" style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 48 }}>
+        <div className="w ct-g">
           <div className="head" style={{ margin: 0 }}>
             <h2>{c.formTitle}</h2>
             <p>{c.formText}</p>
