@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase";
 import { cleanRef } from "@/lib/ref";
+import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -56,5 +57,6 @@ export async function POST(req) {
     console.error("order upsert failed", error.message);
     return NextResponse.json({ error: "db" }, { status: 500 });
   }
+  await notify(`Nieuwe betaling MerchantPilot: ${((row.amount_total || 0) / 100).toFixed(2)} ${(row.currency || "").toUpperCase()}${row.name ? ` van ${row.name}` : ""}${ref ? ` via ${ref}` : ""}.`);
   return NextResponse.json({ ok: true });
 }

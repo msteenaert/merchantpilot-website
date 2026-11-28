@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase";
 import { cleanRef } from "@/lib/ref";
+import { notify } from "@/lib/notify";
 
 export const runtime = "nodejs";
 
@@ -40,5 +41,6 @@ export async function POST(req) {
     console.error("contact insert failed", error.message);
     return NextResponse.json({ error: "db" }, { status: 500 });
   }
+  await notify(`Nieuwe aanvraag MerchantPilot: ${row.name}${row.topic ? ` (${row.topic})` : ""}${ref ? ` via ${ref}` : ""}. Contactgegevens staan in Supabase.`);
   return NextResponse.json({ ok: true });
 }
