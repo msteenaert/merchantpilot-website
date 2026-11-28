@@ -17,7 +17,11 @@ export default async function Pricing({ params }) {
   const { locale } = await params;
   const p = pricing[locale];
   const c = content[locale];
-  const ask = (title) => waLink(locale, locale === "nl" ? `Hoi MerchantPilot! Ik heb interesse in: ${title}.\n\nMijn webshop: \nMijn vraag: ` : `Hi MerchantPilot! I'm interested in: ${title}.\n\nMy store: \nMy question: `);
+  const ask = (it) => {
+    const nl = locale === "nl";
+    const price = it.custom ? "" : ` (${it.from ? (nl ? "vanaf " : "from ") : ""}${money(locale, it.price)}${it.monthly ? (nl ? " per maand" : " per month") : ""} ${nl ? "excl. btw" : "excl. VAT"})`;
+    return waLink(locale, nl ? `Hoi, ik wil graag starten met ${it.title}${price}.` : `Hi, I'd like to get started with ${it.title}${price}.`);
+  };
 
   return (
     <>
@@ -54,8 +58,8 @@ export default async function Pricing({ params }) {
                       <p className="pk-desc">{it.desc}</p>
                       <div className="pk-time"><span>{p.time}</span><b>{it.time}</b></div>
                       <div className="pk-btns">
-                        {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it.title))}>{p.pay}</Cta>}
-                        {it.cta !== "pay" && <Cta className="btn btn-d" href={ask(it.title)}>{p.ask}</Cta>}
+                        {it.cta === "pay" && <Cta className="btn btn-d" href={payLink(locale, it.price, ask(it))}>{p.pay}</Cta>}
+                        {it.cta !== "pay" && <Cta className="btn btn-d" href={ask(it)}>{p.ask}</Cta>}
                       </div>
                       <div className="pk-inc"><b>{p.includes}</b><ul>{it.includes.map((x) => <li key={x}>{x}</li>)}</ul></div>
                     </article>
