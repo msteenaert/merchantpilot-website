@@ -17,7 +17,7 @@ export default async function Pricing({ params }) {
   const { locale } = await params;
   const p = pricing[locale];
   const c = content[locale];
-  const ask = (title) => waLink(locale, locale === "nl" ? `Hoi, ik heb een vraag over: ${title}.` : `Hi, I have a question about: ${title}.`);
+  const ask = (title) => waLink(locale, locale === "nl" ? `Hoi MerchantPilot! Ik heb interesse in: ${title}.\n\nMijn webshop: \nMijn vraag: ` : `Hi MerchantPilot! I'm interested in: ${title}.\n\nMy store: \nMy question: `);
 
   return (
     <>
