@@ -14,10 +14,15 @@ const first = (n) => String(n || "").trim().split(/\s+/)[0] || "-";
 function summarize(partner, contacts, orders) {
   const pct = partner.commission_pct ?? 10;
   const paid = orders.filter((o) => o.payment_status === "paid");
-  const list = paid.map((o) => {
+  // Commission applies to the first paid order of each referred client (see the partner terms).
+  const seen = new Set();
+  const list = [...paid].sort((a, b) => new Date(a.created_at) - new Date(b.created_at)).map((o) => {
     const net = Math.max(0, (o.amount_total || 0) - (o.amount_tax || 0));
-    return { date: o.created_at, currency: (o.currency || "eur").toUpperCase(), net, commission: Math.round((net * pct) / 100), status: o.status };
-  });
+    const who = (o.email || "").trim().toLowerCase();
+    const repeat = !!who && seen.has(who);
+    if (who) seen.add(who);
+    return { date: o.created_at, currency: (o.currency || "eur").toUpperCase(), net, repeat, commission: repeat ? 0 : Math.round((net * pct) / 100), status: o.status };
+  }).reverse();
   const totals = {};
   for (const o of list) {
     totals[o.currency] ||= { net: 0, commission: 0 };
@@ -50,7 +55,7 @@ export async function POST(req) {
     const [{ data: partners }, { data: contacts }, { data: orders }] = await Promise.all([
       supabase.from("partners").select("*").order("created_at"),
       supabase.from("contact_requests").select("created_at,name,topic,ref").not("ref", "is", null),
-      supabase.from("orders").select("created_at,amount_total,amount_tax,currency,payment_status,status,ref").not("ref", "is", null),
+      supabase.from("orders").select("created_at,amount_total,amount_tax,currency,payment_status,status,ref,email").not("ref", "is", null),
     ]);
     const rows = (partners || []).map((p) => summarize(p,
       (contacts || []).filter((c) => c.ref === p.code),
@@ -63,7 +68,7 @@ export async function POST(req) {
 
   const [{ data: contacts }, { data: orders }] = await Promise.all([
     supabase.from("contact_requests").select("created_at,name,topic").eq("ref", code).order("created_at", { ascending: false }),
-    supabase.from("orders").select("created_at,amount_total,amount_tax,currency,payment_status,status").eq("ref", code).order("created_at", { ascending: false }),
+    supabase.from("orders").select("created_at,amount_total,amount_tax,currency,payment_status,status,email").eq("ref", code).order("created_at", { ascending: false }),
   ]);
   return NextResponse.json({ admin: false, partner: summarize(partner, contacts || [], orders || []) });
 }

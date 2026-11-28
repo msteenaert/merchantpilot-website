@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 const T = {
-  en: { title: "Partner dashboard", text: "See the clients you referred and your commission. Use the code and access key we sent you.", code: "Partner code", key: "Access key", btn: "View my referrals", busy: "Loading...", bad: "Code or access key is not correct.", err: "Something went wrong. Try again.", link: "Your referral link", contacts: "Referred requests", orders: "Paid orders", none: "Nothing yet.", date: "Date", name: "Name", topic: "Topic", net: "Order (excl. VAT)", comm: "Your commission", status: "Status", total: "Commission earned", pct: "Commission", partner: "Partner" },
-  nl: { title: "Partner dashboard", text: "Bekijk de klanten die je hebt doorgestuurd en je commissie. Gebruik de code en toegangssleutel die je van ons kreeg.", code: "Partnercode", key: "Toegangssleutel", btn: "Mijn doorverwijzingen bekijken", busy: "Laden...", bad: "Code of toegangssleutel klopt niet.", err: "Er ging iets mis. Probeer het opnieuw.", link: "Jouw partnerlink", contacts: "Doorverwezen aanvragen", orders: "Betaalde orders", none: "Nog niets.", date: "Datum", name: "Naam", topic: "Onderwerp", net: "Order (excl. btw)", comm: "Jouw commissie", status: "Status", total: "Verdiende commissie", pct: "Commissie", partner: "Partner" },
+  en: { title: "Partner dashboard", text: "See the clients you referred and your commission. Use the code and access key we sent you.", code: "Partner code", key: "Access key", btn: "View my referrals", busy: "Loading...", bad: "Code or access key is not correct.", err: "Something went wrong. Try again.", link: "Your referral link", contacts: "Referred requests", orders: "Paid orders", none: "Nothing yet.", date: "Date", name: "Name", topic: "Topic", net: "Order (excl. VAT)", comm: "Your commission", status: "Status", total: "Commission earned", pct: "Commission", partner: "Partner", repeat: "Repeat order, no commission" },
+  nl: { title: "Partner dashboard", text: "Bekijk de klanten die je hebt doorgestuurd en je commissie. Gebruik de code en toegangssleutel die je van ons kreeg.", code: "Partnercode", key: "Toegangssleutel", btn: "Mijn doorverwijzingen bekijken", busy: "Laden...", bad: "Code of toegangssleutel klopt niet.", err: "Er ging iets mis. Probeer het opnieuw.", link: "Jouw partnerlink", contacts: "Doorverwezen aanvragen", orders: "Betaalde orders", none: "Nog niets.", date: "Datum", name: "Naam", topic: "Onderwerp", net: "Order (excl. btw)", comm: "Jouw commissie", status: "Status", total: "Verdiende commissie", pct: "Commissie", partner: "Partner", repeat: "Herhaalbestelling, geen commissie" },
 };
 const cur = { EUR: "€", USD: "$" };
 const fmt = (c, cents, locale) => `${cur[c] || c + " "}${(cents / 100).toLocaleString(locale === "nl" ? "nl-NL" : "en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -28,7 +28,7 @@ function Detail({ p, t, locale }) {
       <h4>{t.orders}</h4>
       {p.orders.length ? (
         <table className="pp-t"><thead><tr><th>{t.date}</th><th>{t.net}</th><th>{t.comm}</th><th>{t.status}</th></tr></thead>
-          <tbody>{p.orders.map((o, i) => <tr key={i}><td>{day(o.date, locale)}</td><td>{fmt(o.currency, o.net, locale)}</td><td>{fmt(o.currency, o.commission, locale)}</td><td>{o.status}</td></tr>)}</tbody></table>
+          <tbody>{p.orders.map((o, i) => <tr key={i}><td>{day(o.date, locale)}</td><td>{fmt(o.currency, o.net, locale)}</td><td>{o.repeat ? t.repeat : fmt(o.currency, o.commission, locale)}</td><td>{o.status}</td></tr>)}</tbody></table>
       ) : <p className="pp-n">{t.none}</p>}
       <h4>{t.contacts}</h4>
       {p.contacts.length ? (
